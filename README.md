@@ -1,7 +1,14 @@
-# CumulusTV
-Android TV Live Channel Plugin with user-entered stream files, powered by the TIF Companion Library.
+# Plex DVR Input
+Android TV Live Channel Plugin with user-entered stream files, powered by the TIF Companion Library.  Plex livetv DVR scheduling options and transcoding options will be added in the coming months.  
 
-<img src='https://cloud.githubusercontent.com/assets/3291635/9031614/2a2534ba-3983-11e5-900f-a8cb99f3bf40.png' width='640px'/>
+<img src='https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526486354.png' width='640px'/>
+
+## Screenshots
+|   |   |   |
+|---|---|---|
+|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526483666.png" width="200" />|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526483839.png" width="200" />|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526486227.png" width="200" />
+|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526486278.png" width="200" />|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526486315.png" width="200" />|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526486354.png" width="200" />
+|<img src="https://github.com/Plex-VDR-HDHomerun/Plex-DVR-Input/blob/master/screenshots/Screenshot_1526486366.png" width="200" />| | |
 
 CumulusTV is a service that allows users to add `HLS` (HTTP Live Streaming) files or any website and play them through the Live Channels app on Android TV. Channels can be added through Android TV, or sync your data with Google Drive and edit the data on any computer.
 
