@@ -29,7 +29,8 @@ import static com.felkertech.cumulustv.fileio.M3uParser.Constants.KEY_COUNTRY;
 /**
  * This class is responsible to converting between M3u playlists and the application model.
  */
-public class M3uParser {
+public class
+M3uParser {
     private static final String TAG = M3uParser.class.getSimpleName();
 
     private static int indexOf(String haystack, String... needles) {
