@@ -129,7 +129,7 @@
     <string name="play">Play</string>
     <string name="toast_error_sorry">Sorry, we couldn\'t do that.</string>
     <string name="edit_channel_name">Edit %1$s metadata</string>
-    <string name="open_cumulus_tv">Open Cumulus TV</string>
+    <string name="open_cumulus_tv">Open PLEX DVR Input</string>
     <string name="report_playback_issue">Report a playback issue (Sends the Url)</string>
     <string name="quick_settings">Quick Settings</string>
     <string name="add_channel_txt">Add Channel</string>
