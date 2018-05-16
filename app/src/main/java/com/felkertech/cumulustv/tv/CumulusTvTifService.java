@@ -7,6 +7,9 @@ import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
+import android.media.tv.TvTrackInfo;
+import android.media.PlaybackParams;
+import android.view.Surface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -19,9 +22,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.accessibility.CaptioningManager;
+import android.view.Surface;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.exoplayer2.Format;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
@@ -81,6 +87,7 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         private int mSelectedSubtitleTrackIndex;
         private CumulusTvPlayer mPlayer;
+        private Handler mHandler;
         private boolean mCaptionEnabled;
         private String mInputId;
         private Context mContext;
@@ -234,19 +241,37 @@ public class CumulusTvTifService extends BaseTvInputService {
             }
         }
 
+        @Override
+        public void onTimeShiftPause() {
+            mPlayer.pause();
+        }
+
+        @Override
+        public void onTimeShiftResume() {
+            mPlayer.play();
+        }
+
+        @Override
+        public long onTimeShiftGetStartPosition() {
+            return tuneTime;
+        }
+
         @TargetApi(Build.VERSION_CODES.M)
         @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public long onTimeShiftGetCurrentPosition() {
-            if (mPlayer == null) {
-                return TvInputManager.TIME_SHIFT_INVALID_TIME;
+            long currentPos = System.currentTimeMillis();
+
+            if(mPlayer == null) {
+                return currentPos;
             }
-            long currentMs = tuneTime + mPlayer.getCurrentPosition();
-            if (DEBUG) {
-                Log.d(TAG, currentMs + "  " + onTimeShiftGetStartPosition() + " start position");
-                Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
-            }
-            return currentMs;
+
+            return mPlayer.getCurrentPosition();
+        }
+
+        @Override
+        public void onTimeShiftSetPlaybackParams(PlaybackParams params) {
+            mPlayer.setPlaybackParams(params);
         }
 
         @Override
@@ -291,11 +316,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             mPlayer.play();
             notifyVideoAvailable();
             return true;
-        }
-
-        @Override
-        public long onTimeShiftGetStartPosition() {
-            return tuneTime;
         }
 
         public TvPlayer getTvPlayer() {
@@ -386,6 +406,8 @@ public class CumulusTvTifService extends BaseTvInputService {
                 mPlayer = null;
             }
         }
+
+
 
         @Override
         public void onRelease() {

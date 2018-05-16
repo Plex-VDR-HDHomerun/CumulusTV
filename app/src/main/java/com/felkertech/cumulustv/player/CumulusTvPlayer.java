@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.Surface;
 
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -16,6 +17,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
@@ -36,7 +38,7 @@ import java.util.List;
 /**
  * Created by guest1 on 12/23/2016.
  */
-public class CumulusTvPlayer implements TvPlayer, ExoPlayer.EventListener {
+public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.Player.EventListener {
     private static final String TAG = CumulusTvPlayer.class.getSimpleName();
     private static final boolean DEBUG = false;
 
@@ -184,7 +186,23 @@ public class CumulusTvPlayer implements TvPlayer, ExoPlayer.EventListener {
     }
 
     @Override
-    public void onPositionDiscontinuity() {
+    public void onPositionDiscontinuity(int reason) {
+    }
+
+    @Override
+    public void onRepeatModeChanged(int repeatMode) {
+    }
+
+    @Override
+    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+    }
+
+    @Override
+    public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+    }
+
+    @Override
+    public void onSeekProcessed() {
     }
 
     public interface ErrorListener {
