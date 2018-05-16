@@ -32,66 +32,52 @@ import com.felkertech.cumulustv.plugins.CumulusChannel;
 public class SuggestedChannels {
     private static final CumulusChannel[] channels = {
             new JsonChannel.Builder()
-                    .setGenres(TvContract.Programs.Genres.TECH_SCIENCE)
-                    .setLogo("http://static-cdn1.ustream.tv/i/channel/live/1_6540154,256x144,b:20" +
-                            "15071514.jpg")
-                    .setMediaUrl("http://iphone-streaming.ustream.tv/uhls/6540154/streams/live/ip" +
-                            "hone/playlist.m3u8")
-                    .setName("NASA Public")
-                    .setNumber("100")
-                    .build(),
-            new JsonChannel.Builder()
-                    .setGenres(TvContract.Programs.Genres.TECH_SCIENCE)
-                    .setLogo("http://static-cdn1.ustream.tv/i/channel/picture/9/4/0/8/9408562/940" +
-                            "8562_iss_hr_1330361780,256x144,r:1.jpg")
-                    .setMediaUrl("http://iphone-streaming.ustream.tv/uhls/9408562/streams/live/ip" +
-                            "hone/playlist.m3u8")
-                    .setName("ISS Stream")
-                    .setNumber("101")
+                    .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
+                            TvContract.Programs.Genres.NEWS)
+                    .setLogo("http://tmsimg.plex.tv/h3/NowShowing/58646/s58646_h3_aa.png")
+                    .setMediaUrl("http://192.168.1.219:5004/auto/v600")
+                    .setName("CNN HD")
+                    .setNumber("600")
                     .build(),
             new JsonChannel.Builder()
                     .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
                             TvContract.Programs.Genres.NEWS)
-                    .setLogo("https://raw.githubusercontent.com/Fleker/CumulusTV/a576e4d49cec21ad" +
-                            "1fdabb0ed49190f87800e462/store/other/TWiT-horizontal.png")
-                    .setMediaUrl("http://hls.twit.tv/flosoft/mp4:twitStream_720/playlist.m3u8")
-                    .setName("TWiT.tv")
-                    .setNumber("133")
+                    .setLogo("http://tmsimg.plex.tv/h3/NowShowing/28717/s28717_h3_aa.png")
+                    .setMediaUrl("http://192.168.1.219:5004/auto/v508")
+                    .setName("NBC HD")
+                    .setNumber("508")
                     .build(),
             new JsonChannel.Builder()
-                    .setLogo("http://static-cdn1.ustream.tv/i/channel/live/1_9600798,256x144,b:20" +
-                            "15071514.jpg")
-                    .setMediaUrl("http://iphone-streaming.ustream.tv/uhls/9600798/streams/live/ip" +
-                            "hone/playlist.m3u8")
-                    .setName("Monterey Bay Aquarium")
-                    .setNumber("167")
+                    .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
+                            TvContract.Programs.Genres.NEWS)
+                    .setLogo("http://tmsimg.plex.tv/h3/NowShowing/56905/s56905_h3_aa.png")
+                    .setMediaUrl("http://192.168.1.219:5004/auto/v620")
+                    .setName("DISCHD")
+                    .setNumber("620")
                     .build(),
             new JsonChannel.Builder()
-                    .setGenres(TvContract.Programs.Genres.MUSIC)
-                    .setLogo("http://i.imgur.com/QRCIhN4.png")
-                    .setMediaUrl("http://pablogott.videocdn.scaleengine.net/pablogott-iphone/play" +
-                            "/ooftv1/playlist.m3u8")
-                    .setNumber("400")
-                    .setName("OutOfFocus.TV")
+                    .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
+                            TvContract.Programs.Genres.NEWS)
+                    .setLogo("http://tmsimg.plex.tv/h3/NowShowing/49438/s49438_h3_aa.png")
+                    .setMediaUrl("http://192.168.1.219:5004/auto/v621")
+                    .setName("NATGEO")
+                    .setNumber("621")
                     .build(),
             new JsonChannel.Builder()
-                    .setAudioOnly(true)
-                    .setGenres(TvContract.Programs.Genres.MUSIC + "," +
-                            TvContract.Programs.Genres.ENTERTAINMENT)
-                    .setLogo("https://ottleyboothr.files.wordpress.com/2015/06/beats-1.jpg")
-                    .setMediaUrl("http://itsliveradio.apple.com/streams/master_session01_hub01_hu" +
-                            "b02.m3u8")
-                    .setName("Beats One Radio")
-                    .setNumber("410")
+                    .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
+                            TvContract.Programs.Genres.NEWS)
+                    .setLogo("http://tmsimg.plex.tv/h3/NowShowing/57708/s57708_h3_aa.png")
+                    .setMediaUrl("http://192.168.1.219:5004/auto/v628")
+                    .setName("HSTRYHD")
+                    .setNumber("628")
                     .build(),
             new JsonChannel.Builder()
                     .setGenres(TvContract.Programs.Genres.ARTS + "," +
                             TvContract.Programs.Genres.ENTERTAINMENT)
-                    .setLogo("http://content.provideocoalition.com/uploads/ArtbeatsLogo_blackbox." +
-                            "jpg")
-                    .setMediaUrl("http://cdn-fms.rbs.com.br/hls-vod/sample1_1500kbps.f4v.m3u8")
-                    .setName("Artbeats Demo")
-                    .setNumber("900")
+                    .setLogo("http://tmsimg.plex.tv/h3/NowShowing/45438/s45438_h3_aa.png")
+                    .setMediaUrl("http://192.168.1.219:5004/auto/v669")
+                    .setName("AWEHD")
+                    .setNumber("669")
                     .build()
     };
 
@@ -99,21 +85,3 @@ public class SuggestedChannels {
         return channels;
     }
 }
-
-/* new CumulusChannel("001",
-        "Sky News",
-        "https://www.youtube.com/embed/y60wDzZt8yg?autoplay=1",
-        "http://news.sky.com/images/33dc2677.sky-news-logo.png", "",
-        TvContract.Programs.Genres.NEWS),
-new CumulusChannel("002",
-        "Taiwan Formosa Live News",
-        "https://www.youtube.com/embed/XxJKnDLYZz4?autoplay=1",
-        "https://i.ytimg.com/vi/XxJKnDLYZz4/maxresdefault_live.jpg", "",
-        TvContract.Programs.Genres.NEWS),*/
-/*
-        new CumulusChannel("900", "Euronews De", "http://fr-par-iphone-2.cdn.hexaglobe.net/streaming/euronews_ewns/14-live.m3u8", ""),
-        new CumulusChannel("901", "TVI (Portugal)", "http://noscdn1.connectedviews.com:1935/live/smil:tvi.smil/playlist.m3u8", ""),
-        new CumulusChannel("902", "PHOENIXHD", "http://teleboy.customers.cdn.iptv.ch/1122/index.m3u8", ""),
-        new CumulusChannel("903", "Sport 1 Germany", "http://streaming-hub.com/tv/i/sport1_1@97464/index_1300_av-p.m3u8?sd=10&rebase=on", ""),
-        new CumulusChannel("904", "RTP International", "http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/rtpi_5ch120h264.stream/livestream.m3u8", "")
-*/

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name" translatable="false">Cumulus TV</string>
-    <string name="sample_tv_input_name" translatable="false">Cumulus TV</string>
+    <string name="app_name" translatable="false">PLEX DVR Input</string>
+    <string name="sample_tv_input_name" translatable="false">PLEX DVR Input</string>
     <string name="title_activity_main" translatable="false">MainActivity</string>
     <string name="tv_input_activity" translatable="false">com.felkertech.cumulustv.activities.CumulusChannelsSetup</string>
 
@@ -9,8 +9,8 @@
     <string name="sm_google_drive_id" translatable="false">GDRIVE_FILE</string>
     <string name="sm_last_version" translatable="false">VERSION</string>
 
-    <string name="intro_title_1">Welcome to CumulusTV</string>
-    <string name="intro_msg_1">"CumulusTV lets you create custom channels that can be played through the Live Channels app. Don't know what to watch? Pick a suggested channel."</string>
+    <string name="intro_title_1">Welcome to PLEX DVR Input</string>
+    <string name="intro_msg_1">"PLEX DVR Input lets you create custom channels that can be played through the Live Channels app. Don't know what to watch? Pick a suggested channel."</string>
     <string name="intro_title_2">Use Google Drive</string>
     <string name="intro_msg_2">You can create a JSON file on Google Drive and have your channels synced across all your devices.</string>
     <string name="intro_title_21">How to Sync</string>
@@ -35,7 +35,7 @@
     <string name="settings_refresh_cloud_local">Redownload Channel List</string>
     <string name="settings_view_licenses">View Software Licenses</string>
     <string name="settings_reset_channel_data">Reset Channel Data</string>
-    <string name="settings_about">About Cumulus TV</string>
+    <string name="settings_about">About base app Cumulus TV</string>
     <string name="settings_read_xmltv">Read XMLTV (Experimental)</string>
 
     <string name="more_actions">More Actions</string>
@@ -72,7 +72,7 @@
 
     <string name="permission_storage_rationale">Your channel data is backed up automatically through Google Drive.</string>
     <string name="permission_not_allowed_error">"You don't have permission"</string>
-    <string name="permission_not_allowed_text">CumulusTV is not allowed to access your storage, so syncing is disabled. The app will continue to work by itself.</string>
+    <string name="permission_not_allowed_text">PLEX DVR Input is not allowed to access your storage, so syncing is disabled. The app will continue to work by itself.</string>
     <string name="permission_action_settings">View Permissions</string>
 
     <string name="import_bulk_title">Import %1$d Channels?</string>
