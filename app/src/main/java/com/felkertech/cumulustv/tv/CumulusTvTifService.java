@@ -27,8 +27,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.exoplayer2.Format;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.felkertech.cumulustv.model.ChannelDatabase;
@@ -45,9 +43,12 @@ import com.google.android.media.tv.companionlibrary.model.Program;
 import com.google.android.media.tv.companionlibrary.model.RecordedProgram;
 import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
+import com.felkertech.cumulustv.player.StreamBundle;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -95,6 +96,21 @@ public class CumulusTvTifService extends BaseTvInputService {
         private JsonChannel jsonChannel;
         private long tuneTime;
         private boolean isWeb;
+
+        private class TuneRunnable implements Runnable {
+            private Uri mChannelUri;
+
+            void setChannelUri(Uri channelUri) {
+                mChannelUri = channelUri;
+            }
+
+            @Override
+            public void run() {
+                tune(mChannelUri);
+            }
+        }
+
+        private TuneRunnable mTune = new TuneRunnable();
 
         RichTvInputSessionImpl(Context context, String inputId) {
             super(context, inputId);
@@ -325,7 +341,7 @@ public class CumulusTvTifService extends BaseTvInputService {
         @Override
         public boolean onTune(Uri channelUri) {
             if (DEBUG) {
-                Log.d(TAG, "Tune to " + channelUri.toString());
+                Log.d(TAG, "postTune: " + channelUri.toString());
             }
             notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_TUNING);
             releasePlayer();
@@ -354,6 +370,71 @@ public class CumulusTvTifService extends BaseTvInputService {
             setOverlayViewEnabled(true);
             return super.onTune(channelUri);
         }
+
+        private void postTune(Uri channelUri, long delayMillis) {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
+            }
+
+            // remove pending tune request
+            mHandler.removeCallbacks(mTune);
+
+            if(channelUri != null) {
+                mTune.setChannelUri(channelUri);
+            }
+
+            // post new tune request
+            mHandler.postDelayed(mTune, delayMillis);
+        }
+
+        public void onDisconnect() {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_UNAVAILABLE);
+            }
+
+            postTune(null, 10 * 1000);
+        }
+
+        public void onTracksChanged(StreamBundle bundle) {
+            final List<TvTrackInfo> tracks = new ArrayList<>(16);
+
+            // create video track (limit surface size to display size)
+            TvTrackInfo info = TrackInfoMapper.findTrackInfo(
+                    bundle,
+                    StreamBundle.CONTENT_VIDEO,
+                    0);
+
+            if(info != null) {
+                tracks.add(info);
+            }
+
+            // create audio tracks
+            int audioTrackCount = bundle.getStreamCount(StreamBundle.CONTENT_AUDIO);
+
+            for(int i = 0; i < audioTrackCount; i++) {
+                info = TrackInfoMapper.findTrackInfo(bundle, StreamBundle.CONTENT_AUDIO, i);
+
+                if(info != null) {
+                    tracks.add(info);
+                }
+            }
+
+            notifyTracksChanged(tracks);
+        }
+
+        private void tune(Uri channelUri) {
+            if(mPlayer == null) {
+                Log.d(TAG, "tune: mPlayer == null ?");
+                return;
+            }
+
+            Log.i(TAG, "onTune: " + channelUri);
+
+            Log.i(TAG, "onTune: " + channelUri);
+
+            Log.i(TAG, "successfully switched channel");
+        }
+
 
         @Override
         public void onSetCaptionEnabled(boolean enabled) {

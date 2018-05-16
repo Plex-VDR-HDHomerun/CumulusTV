@@ -1,0 +1,3 @@
+# ninja log v5
+0	541	0	CMakeFiles/ffmpeg.dir/ffmpeg_jni.cc.o	8129adc61607d268
+541	633	0	/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/build/intermediates/cmake/debug/obj/x86/libffmpeg.so	a9a728606343006e

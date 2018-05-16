@@ -1,1 +1,4 @@
 include ':app', ':plugins'
+include ':extension-ffmpeg'
+
+project(':extension-ffmpeg').projectDir = new File(settingsDir, 'extensions/ffmpeg')
