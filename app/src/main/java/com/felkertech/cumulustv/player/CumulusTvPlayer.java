@@ -31,6 +31,8 @@ import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
+import com.google.android.exoplayer2.audio.AudioRendererEventListener;
+import com.google.android.media.tv.companionlibrary.TvPlayer;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -46,8 +48,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.EventListener, TvExtractor.Listener, VideoRendererEventListener {
-    private static final String TAG = CumulusTvPlayer.class.getSimpleName();
+public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.EventListener, TvExtractor.Listener, AudioRendererEventListener, VideoRendererEventListener {
+
+    private static final String TAG = "CumulusTvPlayer";
+
     private static final boolean DEBUG = false;
 
     private static final int DEFAULT_MIN_BUFFER_MS = 3000;
@@ -76,25 +80,43 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
     private Handler handler;
 
     private List<ErrorListener> mErrorListeners = new ArrayList<>();
-    private SimpleExoPlayer mSimpleExoPlayer;
+    final private SimpleExoPlayer mSimpleExoPlayer;
     final private TvExtractor.Factory extractorFactory;
     final private PositionReference position;
     final private TrickPlayController trickPlayController;
     private float mPlaybackSpeed;
     private Context mContext;
 
-    public CumulusTvPlayer(Context context) {
-        this(context,  new DefaultTrackSelector(), new DefaultLoadControl());
-    }
-
-    public CumulusTvPlayer(Context context, TrackSelector trackSelector, LoadControl loadControl) {
+    public CumulusTvPlayer(Context context, String language, TrackSelector trackSelector, LoadControl loadControl) {
+        AudioCapabilities audioCapabilities = AudioCapabilities.getCapabilities(context);
         mSimpleExoPlayer = ExoPlayerFactory.newSimpleInstance(context, trackSelector, loadControl);
         mContext = context;
         mSimpleExoPlayer.addListener(this);
         mSimpleExoPlayer.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT);
 
+        this.listener = listener;
+
+        handler = new Handler();
+
+        position = new PositionReference();
+
+        trackSelector.setParameters(new DefaultTrackSelector.Parameters().withPreferredAudioLanguage(language));
+
+        mSimpleExoPlayer.addListener(this);
+        mSimpleExoPlayer.setVideoDebugListener(this);
+
         extractorFactory = new TvExtractor.Factory(position, this, language, passthrough);
         trickPlayController = new TrickPlayController(handler, position, mSimpleExoPlayer);
+    }
+
+    public void release() {
+        stop();
+
+        handler = null;
+
+        mSimpleExoPlayer.removeListener(this);
+        mSimpleExoPlayer.release();
+
     }
 
     public void setSurface(Surface surface) {
@@ -196,11 +218,6 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
         }
     }
 
-    public void release() {
-        mSimpleExoPlayer.removeListener(this);
-        mSimpleExoPlayer.release();
-    }
-
     @Override
     public void onTimelineChanged(Timeline timeline, Object manifest) {
 
@@ -257,7 +274,6 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
         Log.i(TAG, "onPlayerStateChanged " + playWhenReady + " " + playbackState);
         listener.onPlayerStateChanged(playWhenReady, playbackState);
     }
-
     @Override
     public void onPlayerError(ExoPlaybackException error) {
         listener.onPlayerError(error);
@@ -321,6 +337,32 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
+    }
+
+    @Override
+    public void onAudioEnabled(DecoderCounters counters) {
+    }
+
+    @Override
+    public void onAudioSessionId(int audioSessionId) {
+    }
+
+    @Override
+    public void onAudioDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
+    }
+
+    @Override
+    public void onAudioInputFormatChanged(Format format) {
+        //listener.onAudioTrackChanged(format);
+    }
+
+    @Override
+    public void onAudioSinkUnderrun(int bufferSize, long bufferSizeMs, long elapsedSinceLastFeedMs) {
+
+    }
+
+    @Override
+    public void onAudioDisabled(DecoderCounters counters) {
     }
 
     public interface ErrorListener {

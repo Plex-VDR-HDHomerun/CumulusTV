@@ -1,10 +1,13 @@
 package com.felkertech.cumulustv.tv;
 
+import android.content.ContentResolver;
 import android.annotation.TargetApi;
 import android.content.ComponentName;
+import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
+import android.media.tv.TvContract;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
 import android.media.tv.TvTrackInfo;
@@ -27,6 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.exoplayer2.Format;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.felkertech.cumulustv.model.ChannelDatabase;
@@ -36,6 +41,7 @@ import com.felkertech.cumulustv.player.CumulusWebPlayer;
 import com.felkertech.cumulustv.player.MediaSourceFactory;
 import com.felkertech.cumulustv.services.CumulusJobService;
 import com.felkertech.n.cumulustv.R;
+import com.google.android.media.tv.companionlibrary.TvPlayer;
 import com.google.android.media.tv.companionlibrary.model.Advertisement;
 import com.google.android.media.tv.companionlibrary.model.Program;
 import com.google.android.media.tv.companionlibrary.model.RecordedProgram;
@@ -43,7 +49,6 @@ import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.felkertech.cumulustv.player.StreamBundle;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +57,8 @@ import java.util.List;
 class CumulusTvTifService extends TvInputService.Session implements CumulusTvPlayer.Listener {
 
     private static final String TAG = "TVSession";
+    private static final boolean DEBUG = false;
+    private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
 
     private static final float CAPTION_LINE_HEIGHT_RATIO = 0.0533f;
         private static final int TEXT_UNIT_PIXELS = 0;
@@ -59,10 +66,11 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
 
         private int mSelectedSubtitleTrackIndex;
         private CumulusTvPlayer mPlayer;
+        private LeanbackTvInputService mContext;
         private Handler mHandler;
         private boolean mCaptionEnabled;
+        private Uri mCurrentChannelUri;
         private String mInputId;
-        private Context mContext;
         private boolean stillTuning;
         private JsonChannel jsonChannel;
         private long tuneTime;
@@ -83,9 +91,11 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
 
         private TuneRunnable mTune = new TuneRunnable();
 
-        CumulusTvTifService(TvInputService context, String inputId) {
-            super(context, inputId);
-            mCaptionEnabled = mCaptioningManager.isEnabled();
+        private ContentResolver mContentResolver;
+
+        CumulusTvTifService(LeanbackTvInputService context, String inputId) {
+            super(context);
+            mContentResolver =  mContext.getContentResolver();
             mContext = context;
             mInputId = inputId;
         }
@@ -99,6 +109,18 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
         Log.i(TAG, "set surface");
         mPlayer.setSurface(surface);
         return true;
+    }
+
+    @Override
+    public void onSurfaceChanged(int format, int width, int height) {
+        Log.i(TAG, "surface changed: " + width + "x" + height + " format: " + format);
+    }
+
+    @Override
+    public void onSetStreamVolume(float volume) {
+        if(mPlayer != null) {
+            mPlayer.setStreamVolume(volume);
+        }
     }
 
         @Override
@@ -258,16 +280,20 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
             return mPlayer.getStartPosition();
         }
 
-        @Override
-        public long onTimeShiftGetCurrentPosition() {
-            long currentPos = System.currentTimeMillis();
-
-            if(mPlayer == null) {
-                return currentPos;
-            }
-
-            return mPlayer.getCurrentPosition();
+    @TargetApi(Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public long onTimeShiftGetCurrentPosition() {
+        if (mPlayer == null) {
+            return TvInputManager.TIME_SHIFT_INVALID_TIME;
         }
+        long currentMs = tuneTime + mPlayer.getCurrentPosition();
+        if (DEBUG) {
+            Log.d(TAG, currentMs + "  " + onTimeShiftGetStartPosition() + " start position");
+            Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
+        }
+        return currentMs;
+    }
 
         @Override
         public void onTimeShiftSeekTo(long timeMs) {
@@ -292,49 +318,67 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
             return true;
         }
 
-        @Override
-        public boolean onPlayProgram(Program program, long startPosMs) {
-            if (program == null) {
-                requestEpgSync(getCurrentChannelUri());
-                notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_TUNING);
-                return false;
-            }
-            jsonChannel = ChannelDatabase.getInstance(getApplicationContext()).findChannelByMediaUrl(
-                    program.getInternalProviderData().getVideoUrl());
-            Log.d(TAG, "Play program " + program.getTitle() + " " +
-                    program.getInternalProviderData().getVideoUrl());
-            if (program.getInternalProviderData().getVideoUrl() == null) {
-                Toast.makeText(mContext, getString(R.string.msg_no_url_found), Toast.LENGTH_SHORT).show();
-                notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_UNKNOWN);
-                return false;
-            } else {
-                createPlayer(program.getInternalProviderData().getVideoType(),
-                        Uri.parse(program.getInternalProviderData().getVideoUrl()));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
-                }
-                mPlayer.play();
-                notifyVideoAvailable();
-                Log.d(TAG, "The video should start playing");
-                return true;
-            }
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        if(playWhenReady && playbackState == com.google.android.exoplayer2.Player.STATE_BUFFERING) {
+            notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_BUFFERING);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.N)
-        public boolean onPlayRecordedProgram(RecordedProgram recordedProgram) {
-            createPlayer(recordedProgram.getInternalProviderData().getVideoType(),
-                    Uri.parse(recordedProgram.getInternalProviderData().getVideoUrl()));
+        if(playWhenReady && playbackState == com.google.android.exoplayer2.Player.STATE_READY) {
+            notifyVideoAvailable();
+        }
+    }
 
-            long recordingStartTime = recordedProgram.getInternalProviderData()
-                    .getRecordedProgramStartTime();
-            mPlayer.seek(recordingStartTime - recordedProgram.getStartTimeUtcMillis());
+    // Listener implementation
+
+    @Override
+    public void onPlayerError(Exception e) {
+        Log.e(TAG, "onPlayerError");
+        e.printStackTrace();
+    }
+    @Override
+    public boolean onPlayProgram(Program program, long startPosMs) {
+        if (program == null) {
+            requestEpgSync(getCurrentChannelUri());
+            notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_TUNING);
+            return false;
+        }
+        jsonChannel = ChannelDatabase.getInstance(getApplicationContext()).findChannelByMediaUrl(
+                program.getInternalProviderData().getVideoUrl());
+        Log.d(TAG, "Play program " + program.getTitle() + " " +
+                program.getInternalProviderData().getVideoUrl());
+        if (program.getInternalProviderData().getVideoUrl() == null) {
+            Toast.makeText(mContext, getString(R.string.msg_no_url_found), Toast.LENGTH_SHORT).show();
+            notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_UNKNOWN);
+            return false;
+        } else {
+            createPlayer(program.getInternalProviderData().getVideoType(),
+                    Uri.parse(program.getInternalProviderData().getVideoUrl()));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
             }
             mPlayer.play();
             notifyVideoAvailable();
+            Log.d(TAG, "The video should start playing");
             return true;
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public boolean onPlayRecordedProgram(RecordedProgram recordedProgram) {
+        createPlayer(recordedProgram.getInternalProviderData().getVideoType(),
+                Uri.parse(recordedProgram.getInternalProviderData().getVideoUrl()));
+
+        long recordingStartTime = recordedProgram.getInternalProviderData()
+                .getRecordedProgramStartTime();
+        mPlayer.seek(recordingStartTime - recordedProgram.getStartTimeUtcMillis());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
+        }
+        mPlayer.play();
+        notifyVideoAvailable();
+        return true;
+    }
 
         public CumulusTvPlayer getTvPlayer() {
             return mPlayer;
@@ -342,9 +386,8 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
 
         @Override
         public boolean onTune(Uri channelUri) {
-            if (DEBUG) {
                 Log.d(TAG, "Tune to " + channelUri.toString());
-            }
+
             notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_TUNING);
             releasePlayer();
             tuneTime = System.currentTimeMillis();
@@ -424,6 +467,47 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
             notifyTracksChanged(tracks);
         }
 
+    @Override
+    public void onAudioTrackChanged(Format format) {
+        Log.d(TAG, "onAudioTrackChanged: " + format.id);
+        notifyTrackSelected(TvTrackInfo.TYPE_AUDIO, format.id);
+    }
+
+    @Override
+    public void onVideoTrackChanged(Format format) {
+        ContentValues values = new ContentValues();
+
+        int height = format.height;
+
+        if(height == 720) {
+            values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_720P);
+        }
+
+        if(height > 720 && height <= 1080) {
+            values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_1080I);
+        }
+        else if(height == 2160) {
+            values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_2160P);
+        }
+        else if(height == 4320) {
+            values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_4320P);
+        }
+        else {
+            values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_576I);
+        }
+
+        if(mContentResolver.update(mCurrentChannelUri, values, null, null) != 1) {
+            Log.e(TAG, "unable to update channel properties");
+        }
+
+        notifyTrackSelected(TvTrackInfo.TYPE_VIDEO, format.id);
+    }
+
+    @Override
+    public void onRenderedFirstFrame() {
+        notifyVideoAvailable();
+    }
+
         private void tune(Uri channelUri) {
             if(mPlayer == null) {
                 Log.d(TAG, "tune: mPlayer == null ?");
@@ -432,9 +516,10 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
 
             Log.i(TAG, "onTune: " + channelUri);
 
-            Log.i(TAG, "onTune: " + channelUri);
-
             Log.i(TAG, "successfully switched channel");
+
+            // set current channel uri
+            mCurrentChannelUri = channelUri;
         }
 
         @Override
@@ -443,7 +528,7 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
                     Uri.parse(advertisement.getRequestUrl()));
         }
 
-        private void createPlayer(int videoType, Uri videoUrl) {
+        public void createPlayer(int videoType, Uri videoUrl) {
             releasePlayer();
 
             mPlayer = new CumulusTvPlayer(mContext);
@@ -460,6 +545,7 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
                     }
                 }
             });
+
             mPlayer.registerErrorListener(new CumulusTvPlayer.ErrorListener() {
                 @Override
                 public void onError(Exception error) {
@@ -471,6 +557,7 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
                     }
                 }
             });
+
             Log.d(TAG, "Create player for " + videoUrl);
             mPlayer.startPlaying(videoUrl);
         }
@@ -484,19 +571,12 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
             }
         }
 
-
-
-        @Override
-        public void onRelease() {
-            super.onRelease();
-            releasePlayer();
+    @Override
+    public void onRelease() {
+        if(mPlayer != null) {
+            mPlayer.release();
         }
-
-        @Override
-        public void onBlockContent(TvContentRating rating) {
-            super.onBlockContent(rating);
-            releasePlayer();
-        }
+    }
 
         private void requestEpgSync(final Uri channelUri) {
             CumulusJobService.requestImmediateSync1(CumulusTvTifService.this, mInputId, CumulusJobService.DEFAULT_IMMEDIATE_EPG_DURATION_MILLIS,
