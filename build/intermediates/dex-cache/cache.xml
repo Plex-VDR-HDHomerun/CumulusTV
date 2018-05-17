@@ -8,7 +8,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="467417b1695583fbaee8de0e5f4202b6a2b578e1">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-crashlytics-core-2.3.4_057e2189ad50f14e0a92f33d10012a4f3246c557.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.crashlytics.sdk.android-crashlytics-core-2.3.4_057e2189ad50f14e0a92f33d10012a4f3246c557.jar" />
     </item>
     <item
         is-multidex="false"
@@ -17,7 +17,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="b7a78990c10481f43cb4909f535ef4f11e60f1ab">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-beta-1.1.3_2592e06d5354b267e247726e2a45f62cafcde9c5.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.crashlytics.sdk.android-beta-1.1.3_2592e06d5354b267e247726e2a45f62cafcde9c5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -26,7 +26,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="3ecb9d2aad9a03dd8d0914b715cc1fc11d942c6c">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-2.6.1_0c38a4a9290723028a2225a9b0d74628632e36f6.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.exoplayer-exoplayer-2.6.1_0c38a4a9290723028a2225a9b0d74628632e36f6.jar" />
     </item>
     <item
         is-multidex="false"
@@ -35,7 +35,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="985be85104f6d0c5c5e51e7b7e60d8883a98ac64">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.0_edb26cd73d1f9fcdea9bd7af5c8a0ec29f069576.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-tasks-10.0.0_edb26cd73d1f9fcdea9bd7af5c8a0ec29f069576.jar" />
     </item>
     <item
         is-multidex="false"
@@ -44,7 +44,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="824923b2ab3133cbf3c315a7c59ea300f1e17d78">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-preference-v7-25.4.0_90127afc366eb52adee181e2e904183a850da812.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-preference-v7-25.4.0_90127afc366eb52adee181e2e904183a850da812.jar" />
     </item>
     <item
         is-multidex="false"
@@ -53,7 +53,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="e3e524f475e43516ea70ef2d15d1cc56f0ec97d5">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-leanback-v17-25.4.0_f12069ebb464f987d5fd4e291e30329efc55c8e0.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-leanback-v17-25.4.0_f12069ebb464f987d5fd4e291e30329efc55c8e0.jar" />
     </item>
     <item
         is-multidex="false"
@@ -62,7 +62,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="216789168ced50f783f7c1751799a0cf4a463b26">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.media.tv-companionlibrary-1.0.1_1d1878f5e8dd264bcffd7254067098747cd61513.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.media.tv-companionlibrary-1.0.1_1d1878f5e8dd264bcffd7254067098747cd61513.jar" />
     </item>
     <item
         is-multidex="false"
@@ -71,7 +71,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="40340c0748190fe897baf7bffbc1b282734294e5">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/okhttp-2.4.0_6af697adabd3afaa4adb724193aa1b2d4f0d748d.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/okhttp-2.4.0_6af697adabd3afaa4adb724193aa1b2d4f0d748d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -80,7 +80,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="9ca8a321d9d66727f6017b716c0615fa6aa21d96">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-ui-2.6.1_e078e571ea0fdb0a3a1a7019444a06666c013182.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.exoplayer-exoplayer-ui-2.6.1_e078e571ea0fdb0a3a1a7019444a06666c013182.jar" />
     </item>
     <item
         is-multidex="false"
@@ -89,7 +89,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.4.0_c250bb539983b02831598feb23a6eb163909cc6f.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-core-ui-25.4.0_c250bb539983b02831598feb23a6eb163909cc6f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -98,7 +98,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="32636dfc1db28a118151b9566da35a6592d9dbbd">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-smoothstreaming-2.6.1_0e93078fa6c4e90abf249335d425e03300da63fb.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.exoplayer-exoplayer-smoothstreaming-2.6.1_0e93078fa6c4e90abf249335d425e03300da63fb.jar" />
     </item>
     <item
         is-multidex="false"
@@ -107,7 +107,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="5b72bf48563ea8410e650de14aa33ff69a3e8c35">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/okio-1.4.0_221517f04c7741ae0f39dcae73cca73e0d0ef9f0.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/okio-1.4.0_221517f04c7741ae0f39dcae73cca73e0d0ef9f0.jar" />
     </item>
     <item
         is-multidex="false"
@@ -116,7 +116,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="e18acddf93cf916792232a8f557ec7d408b4a945">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.github.Fleker-plugins-unspecified_a983636499579ec7fe72e4f8d0267e13b7dd2b0b.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.github.Fleker-plugins-unspecified_a983636499579ec7fe72e4f8d0267e13b7dd2b0b.jar" />
     </item>
     <item
         is-multidex="false"
@@ -125,7 +125,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="fd6a954de38a79d26bb3b369ae69753fa3a175fb">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-core-2.6.1_a7641729cd4f12f8ad549ade1813387d481e4de2.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.exoplayer-exoplayer-core-2.6.1_a7641729cd4f12f8ad549ade1813387d481e4de2.jar" />
     </item>
     <item
         is-multidex="false"
@@ -134,7 +134,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="1d1e2665bad672383210664318ccc3bcde90f595">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-preference-leanback-v17-25.4.0_2283951bee8cc742fefb1820203f692e1b246524.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-preference-leanback-v17-25.4.0_2283951bee8cc742fefb1820203f692e1b246524.jar" />
     </item>
     <item
         is-multidex="false"
@@ -143,7 +143,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="73fe8ab7f76e41d0cabbc4fa3399557de52efb2d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-10.0.0_ef18db5765d2f8c1aa8a18a036e07ff770330f38.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-ads-10.0.0_ef18db5765d2f8c1aa8a18a036e07ff770330f38.jar" />
     </item>
     <item
         is-multidex="false"
@@ -152,7 +152,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.4.0_b00be425f35c090ac8e56e779c08932848a03a6f.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-media-compat-25.4.0_b00be425f35c090ac8e56e779c08932848a03a6f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -161,7 +161,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="e04f28ac2dd9bbe48ced6fc87fedf46c2586f5d6">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.4.0_3da1b0115911cf72830f069cde70ca35c46be405.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-core-utils-25.4.0_3da1b0115911cf72830f069cde70ca35c46be405.jar" />
     </item>
     <item
         is-multidex="false"
@@ -170,7 +170,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="21246e1a6815dc499443d46f9f5dbe954fd2b746">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/interactivemedia-3.5.2_3a50fa90069e4d7437d9782c9ef45681483b1514.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/interactivemedia-3.5.2_3a50fa90069e4d7437d9782c9ef45681483b1514.jar" />
     </item>
     <item
         is-multidex="false"
@@ -179,7 +179,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="88a6346382185deaeb9e3cc7d89717bc67d2fb16">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.github.paolorotolo-appintro-3.2.0_76082aff8f9c8bd6b338fe5bea10c331b393d6b5.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.github.paolorotolo-appintro-3.2.0_76082aff8f9c8bd6b338fe5bea10c331b393d6b5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -188,7 +188,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.4.0_45eace1dcbd331e89067963b9a0075928a3d4ab4.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-fragment-25.4.0_45eace1dcbd331e89067963b9a0075928a3d4ab4.jar" />
     </item>
     <item
         is-multidex="false"
@@ -197,7 +197,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="03ebbd941ee173b997d517c023d57bf0fc96929d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-hls-2.6.1_1c45c2437a23c1fa4228089a2ec78a0ff4c5af71.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.exoplayer-exoplayer-hls-2.6.1_1c45c2437a23c1fa4228089a2ec78a0ff4c5af71.jar" />
     </item>
     <item
         is-multidex="false"
@@ -206,7 +206,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="ca75c062ed024385befef143a03e158bcdf86f59">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.github.fleker-settingsmanager-common-1.2.1_625b798b717668875befe331b86910ad08e534cf.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.github.fleker-settingsmanager-common-1.2.1_625b798b717668875befe331b86910ad08e534cf.jar" />
     </item>
     <item
         is-multidex="false"
@@ -215,7 +215,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="ae809d521d9f7da5337a82edd64eea23a76e788d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gass-10.0.0_19e443457b8d58aefb3f987ce6ef82ae9382ebd5.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-gass-10.0.0_19e443457b8d58aefb3f987ce6ef82ae9382ebd5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -224,7 +224,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="75dbc3537bc912d077b3db2f5ac72d5b43644b2c">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.0_675f5ea204427d873ae3acf836253fcd049d61dc.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-basement-10.0.0_675f5ea204427d873ae3acf836253fcd049d61dc.jar" />
     </item>
     <item
         is-multidex="false"
@@ -233,7 +233,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.4.0_a555fedd2f1fc4595a45328cf626e09a7e37453b.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-recyclerview-v7-25.4.0_a555fedd2f1fc4595a45328cf626e09a7e37453b.jar" />
     </item>
     <item
         is-multidex="false"
@@ -242,7 +242,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="a64026daf4819a589aea776f5deb19b257a104d1">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.4.0_755804e56ccbb6faa02327fda81f175ea3dc1aee.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-compat-25.4.0_755804e56ccbb6faa02327fda81f175ea3dc1aee.jar" />
     </item>
     <item
         is-multidex="false"
@@ -251,7 +251,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="4961be1437163ab598620a3c907c0f3432936f51">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.4.0_a24065b546799c146b9cb7e838948db27baea4ca.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-animated-vector-drawable-25.4.0_a24065b546799c146b9cb7e838948db27baea4ca.jar" />
     </item>
     <item
         is-multidex="false"
@@ -260,7 +260,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.4.0_5d134ef958bbbd92feb99468a38e8cc5bf1f06f3.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-appcompat-v7-25.4.0_5d134ef958bbbd92feb99468a38e8cc5bf1f06f3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -269,7 +269,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="75c54c470e19b251749e6e6c2cf3d73c0b50aa64">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.pnikosis-materialish-progress-1.5_4a6efb0c6d2252529fd8fe92990a2cb9322096e2.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.pnikosis-materialish-progress-1.5_4a6efb0c6d2252529fd8fe92990a2cb9322096e2.jar" />
     </item>
     <item
         is-multidex="false"
@@ -278,7 +278,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="849da156edbc1201f5cd6e237524187442a62af3">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-lite-10.0.0_a16eb55f1a999d193f5d4ed1bfc60ff0c8039b42.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-ads-lite-10.0.0_a16eb55f1a999d193f5d4ed1bfc60ff0c8039b42.jar" />
     </item>
     <item
         is-multidex="false"
@@ -287,7 +287,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="50ce22b7e4bbbf49900f49bb9f1d90432f8d629d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.github.fleker-settingsmanager-1.3.5_f39e4ab6faf868f6d08bef70e4d213f76b7a2185.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.github.fleker-settingsmanager-1.3.5_f39e4ab6faf868f6d08bef70e4d213f76b7a2185.jar" />
     </item>
     <item
         is-multidex="false"
@@ -296,7 +296,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="4701f9f79c8a00564912b21b0cb0cec3f51a7d23">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-drive-10.0.0_c85a1f5c61bd05c972a71729b56245013a729527.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-drive-10.0.0_c85a1f5c61bd05c972a71729b56245013a729527.jar" />
     </item>
     <item
         is-multidex="false"
@@ -305,7 +305,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="a7782471b2a0de8fec071b8094a8aaf61c46ab70">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/support-annotations-27.0.0_bcf01ff5680a4d85e1bb682c123969451e5f0e11.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/support-annotations-27.0.0_bcf01ff5680a4d85e1bb682c123969451e5f0e11.jar" />
     </item>
     <item
         is-multidex="false"
@@ -314,7 +314,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/glide-3.7.0_9663bd507e7aaaa053b9119a7dada7f1a8c6b330.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/glide-3.7.0_9663bd507e7aaaa053b9119a7dada7f1a8c6b330.jar" />
     </item>
     <item
         is-multidex="false"
@@ -323,7 +323,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="fb0229499e600b485a276d4e31161a3ae31c144c">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-clearcut-10.0.0_c49af9d441e38c2c0474a9cc8f6a12b3a0f28c74.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-clearcut-10.0.0_c49af9d441e38c2c0474a9cc8f6a12b3a0f28c74.jar" />
     </item>
     <item
         is-multidex="false"
@@ -332,7 +332,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.4.0_f8ad6ef79c2cab59bde4b44c27bdc7595bb3a85e.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-25.4.0_f8ad6ef79c2cab59bde4b44c27bdc7595bb3a85e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -341,7 +341,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="663246efbd10b60ba71e1658d961b704b2814f3f">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-dash-2.6.1_89b03af8cf7a1f2e561a6262b42716ec4d5e7c7d.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.exoplayer-exoplayer-dash-2.6.1_89b03af8cf7a1f2e561a6262b42716ec4d5e7c7d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -350,7 +350,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.4.0_340d80e756fa10a6aa9b15c66ad6c15238134ee1.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-support-vector-drawable-25.4.0_340d80e756fa10a6aa9b15c66ad6c15238134ee1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -359,7 +359,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="3347c3e7056fabc88bdbd8fdae65ddf2b674d977">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.0_a3f865284fe2f43ebb9baa61a77397c9f78a3568.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-base-10.0.0_a3f865284fe2f43ebb9baa61a77397c9f78a3568.jar" />
     </item>
     <item
         is-multidex="false"
@@ -368,7 +368,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="032c65a3b537f89d5510a7cb18a0404c7f65c816">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-palette-v7-25.4.0_87c14a2e107a589cf3e4bb05d27009b3abcfcf28.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-palette-v7-25.4.0_87c14a2e107a589cf3e4bb05d27009b3abcfcf28.jar" />
     </item>
     <item
         is-multidex="false"
@@ -377,7 +377,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="6e65060ef2ec6ec98365250d2119d7968626fd3f">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/io.fabric.sdk.android-fabric-1.3.5_5bb3d4f8a4f2b80969fdd1c2b8513391dea1aacd.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/io.fabric.sdk.android-fabric-1.3.5_5bb3d4f8a4f2b80969fdd1c2b8513391dea1aacd.jar" />
     </item>
     <item
         is-multidex="false"
@@ -386,7 +386,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="2bec381d4ffc4ae89124e3083ff446f9c468dda0">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-preference-v14-25.4.0_252df7cd4287bda352ac36b3fb54032c2b210a4a.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-preference-v14-25.4.0_252df7cd4287bda352ac36b3fb54032c2b210a4a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -395,7 +395,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="2b1fb39b3c4feeb031b00744fbbe464e3d31a88d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-crashlytics-2.5.1_83b79085d45187247806a6379b6635ac7b7e8150.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.crashlytics.sdk.android-crashlytics-2.5.1_83b79085d45187247806a6379b6635ac7b7e8150.jar" />
     </item>
     <item
         is-multidex="false"
@@ -404,7 +404,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="441ace5a20e7fcf94f30b4394d882ed2f79237c3">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-answers-1.3.1_2a466bff14cdaf5502f42cf7ad85eafcaeddff54.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.crashlytics.sdk.android-answers-1.3.1_2a466bff14cdaf5502f42cf7ad85eafcaeddff54.jar" />
     </item>
     <item
         is-multidex="false"
@@ -413,7 +413,7 @@
         optimize="true"
         revision="24.0.2"
         sha1="c6e2b588eb35ac6b34dc7a007a35bbec3cccda4d">
-        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-25.4.0_977bb2c93f49a4a1bad23547d259dcc7ac0b6147.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/app/build/intermediates/pre-dexed/release/com.android.support-customtabs-25.4.0_977bb2c93f49a4a1bad23547d259dcc7ac0b6147.jar" />
     </item>
 
 </items>

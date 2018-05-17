@@ -341,7 +341,7 @@ public class CumulusTvTifService extends BaseTvInputService {
         @Override
         public boolean onTune(Uri channelUri) {
             if (DEBUG) {
-                Log.d(TAG, "postTune: " + channelUri.toString());
+                Log.d(TAG, "Tune to " + channelUri.toString());
             }
             notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_TUNING);
             releasePlayer();
