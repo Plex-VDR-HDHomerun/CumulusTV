@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/CumulusTV-PLEX.iml" filepath="$PROJECT_DIR$/CumulusTV-PLEX.iml" />
       <module fileurl="file://$PROJECT_DIR$/Plex-DVR-Input.iml" filepath="$PROJECT_DIR$/Plex-DVR-Input.iml" />
       <module fileurl="file://$PROJECT_DIR$/Plex-DVR-Input-TIMESHIFT.iml" filepath="$PROJECT_DIR$/Plex-DVR-Input-TIMESHIFT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Plex-DVR-Input-Timeshift.iml" filepath="$PROJECT_DIR$/Plex-DVR-Input-Timeshift.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/extensions/ffmpeg/extension-ffmpeg.iml" filepath="$PROJECT_DIR$/extensions/ffmpeg/extension-ffmpeg.iml" />
       <module fileurl="file://$PROJECT_DIR$/extensions/ffmpeg/extension-ffmpeg.iml" filepath="$PROJECT_DIR$/extensions/ffmpeg/extension-ffmpeg.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugins/plugins.iml" filepath="$PROJECT_DIR$/plugins/plugins.iml" />
     </modules>

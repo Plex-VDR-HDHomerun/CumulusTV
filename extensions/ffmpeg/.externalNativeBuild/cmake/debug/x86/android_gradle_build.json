@@ -2,11 +2,11 @@
 {
 	"buildFiles" : 
 	[
-		"/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/CMakeLists.txt"
+		"C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/src/main/cpp/CMakeLists.txt"
 	],
 	"cleanCommands" : 
 	[
-		"/home/jetson/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/.externalNativeBuild/cmake/debug/x86 --target clean"
+		"C:\\AndroidSDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\.externalNativeBuild\\cmake\\debug\\x86 --target clean"
 	],
 	"cppFileExtensions" : [ "cc" ],
 	"libraries" : 
@@ -16,58 +16,58 @@
 			"abi" : "x86",
 			"artifactName" : "avcodec",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libavcodec.so",
-			"toolchain" : "8830209732841864202"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libavcodec.so",
+			"toolchain" : "1282776189"
 		},
 		"avresample-Debug-x86" : 
 		{
 			"abi" : "x86",
 			"artifactName" : "avresample",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libavresample.so",
-			"toolchain" : "8830209732841864202"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libavresample.so",
+			"toolchain" : "1282776189"
 		},
 		"avutil-Debug-x86" : 
 		{
 			"abi" : "x86",
 			"artifactName" : "avutil",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libavutil.so",
-			"toolchain" : "8830209732841864202"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libavutil.so",
+			"toolchain" : "1282776189"
 		},
 		"ffmpeg-Debug-x86" : 
 		{
 			"abi" : "x86",
 			"artifactName" : "ffmpeg",
-			"buildCommand" : "/home/jetson/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/.externalNativeBuild/cmake/debug/x86 --target ffmpeg",
+			"buildCommand" : "C:\\AndroidSDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\.externalNativeBuild\\cmake\\debug\\x86 --target ffmpeg",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
-					"flags" : "  --sysroot=/home/jetson/Android/Sdk/ndk-bundle/sysroot  -Dffmpeg_EXPORTS -I/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/./include -isystem /home/jetson/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/jetson/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include -isystem /home/jetson/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /home/jetson/Android/Sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security   -O0  -fPIC    -c ",
-					"src" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/ffmpeg_jni.cc",
-					"workingDirectory" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/.externalNativeBuild/cmake/debug/x86"
+					"flags" : "  --sysroot=C:/AndroidSDK/ndk-bundle/sysroot  -Dffmpeg_EXPORTS -IC:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\src\\main\\cpp\\.\\include -isystem C:\\AndroidSDK\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem C:\\AndroidSDK\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\x86\\include -isystem C:\\AndroidSDK\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -isystem C:/AndroidSDK/ndk-bundle/sysroot/usr/include/i686-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security   -O0  -fPIC    -c ",
+					"src" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/src/main/cpp/ffmpeg_jni.cc",
+					"workingDirectory" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/.externalNativeBuild/cmake/debug/x86"
 				}
 			],
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/build/intermediates/cmake/debug/obj/x86/libffmpeg.so",
-			"toolchain" : "8830209732841864202"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/build/intermediates/cmake/debug/obj/x86/libffmpeg.so",
+			"toolchain" : "1282776189"
 		},
 		"swresample-Debug-x86" : 
 		{
 			"abi" : "x86",
 			"artifactName" : "swresample",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TIMESHIFT/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libswresample.so",
-			"toolchain" : "8830209732841864202"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Timeshift/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/x86/libswresample.so",
+			"toolchain" : "1282776189"
 		}
 	},
 	"toolchains" : 
 	{
-		"8830209732841864202" : 
+		"1282776189" : 
 		{
-			"cCompilerExecutable" : "/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-gcc",
-			"cppCompilerExecutable" : "/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-g++"
+			"cCompilerExecutable" : "C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-gcc.exe",
+			"cppCompilerExecutable" : "C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-g++.exe"
 		}
 	}
 }

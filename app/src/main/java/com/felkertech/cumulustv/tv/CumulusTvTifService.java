@@ -36,8 +36,6 @@ import com.felkertech.cumulustv.player.CumulusWebPlayer;
 import com.felkertech.cumulustv.player.MediaSourceFactory;
 import com.felkertech.cumulustv.services.CumulusJobService;
 import com.felkertech.n.cumulustv.R;
-import com.google.android.media.tv.companionlibrary.BaseTvInputService;
-import com.google.android.media.tv.companionlibrary.TvPlayer;
 import com.google.android.media.tv.companionlibrary.model.Advertisement;
 import com.google.android.media.tv.companionlibrary.model.Program;
 import com.google.android.media.tv.companionlibrary.model.RecordedProgram;
@@ -51,38 +49,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * An instance of {@link BaseTvInputService} which plays Cumulus Tv videos.
- */
-public class CumulusTvTifService extends BaseTvInputService {
-    private static final String TAG = CumulusTvTifService.class.getSimpleName();
-    private static final boolean DEBUG = false;
-    private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
+class CumulusTvTifService extends TvInputService.Session implements CumulusTvPlayer.Listener {
 
-    private CaptioningManager mCaptioningManager;
+    private static final String TAG = "TVSession";
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mCaptioningManager = (CaptioningManager) getSystemService(Context.CAPTIONING_SERVICE);
-    }
-
-    @Override
-    public final Session onCreateSession(String inputId) {
-        RichTvInputSessionImpl session = new RichTvInputSessionImpl(this, inputId);
-        session.setOverlayViewEnabled(true);
-        return super.sessionCreated(session);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    @Nullable
-    @Override
-    public TvInputService.RecordingSession onCreateRecordingSession(String inputId) {
-        return null;
-    }
-
-    class RichTvInputSessionImpl extends BaseTvInputService.Session {
-        private static final float CAPTION_LINE_HEIGHT_RATIO = 0.0533f;
+    private static final float CAPTION_LINE_HEIGHT_RATIO = 0.0533f;
         private static final int TEXT_UNIT_PIXELS = 0;
         private static final String UNKNOWN_LANGUAGE = "und";
 
@@ -112,12 +83,23 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         private TuneRunnable mTune = new TuneRunnable();
 
-        RichTvInputSessionImpl(Context context, String inputId) {
+        CumulusTvTifService(TvInputService context, String inputId) {
             super(context, inputId);
             mCaptionEnabled = mCaptioningManager.isEnabled();
             mContext = context;
             mInputId = inputId;
         }
+
+    @Override
+    public boolean onSetSurface(Surface surface) {
+        if(mPlayer == null) {
+            return false;
+        }
+
+        Log.i(TAG, "set surface");
+        mPlayer.setSurface(surface);
+        return true;
+    }
 
         @Override
         public View onCreateOverlayView() {
@@ -269,28 +251,45 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         @Override
         public long onTimeShiftGetStartPosition() {
-            return tuneTime;
+            if(mPlayer == null) {
+                return System.currentTimeMillis();
+            }
+
+            return mPlayer.getStartPosition();
         }
 
-
-        @TargetApi(Build.VERSION_CODES.M)
-        @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public long onTimeShiftGetCurrentPosition() {
-            if (mPlayer == null) {
-                return TvInputManager.TIME_SHIFT_INVALID_TIME;
+            long currentPos = System.currentTimeMillis();
+
+            if(mPlayer == null) {
+                return currentPos;
             }
-            long currentMs = tuneTime + mPlayer.getCurrentPosition();
-            if (DEBUG) {
-                Log.d(TAG, currentMs + "  " + onTimeShiftGetStartPosition() + " start position");
-                Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
-            }
-            return currentMs;
+
+            return mPlayer.getCurrentPosition();
+        }
+
+        @Override
+        public void onTimeShiftSeekTo(long timeMs) {
+            mPlayer.seek(timeMs);
         }
 
         @Override
         public void onTimeShiftSetPlaybackParams(PlaybackParams params) {
             mPlayer.setPlaybackParams(params);
+        }
+
+        @Override
+        public void onSetCaptionEnabled(boolean enabled) {
+        }
+
+        @Override
+        public boolean onSelectTrack(int type, String trackId) {
+            if(type == TvTrackInfo.TYPE_AUDIO) {
+                mPlayer.selectAudioTrack(trackId);
+            }
+
+            return true;
         }
 
         @Override
@@ -328,7 +327,7 @@ public class CumulusTvTifService extends BaseTvInputService {
 
             long recordingStartTime = recordedProgram.getInternalProviderData()
                     .getRecordedProgramStartTime();
-            mPlayer.seekTo(recordingStartTime - recordedProgram.getStartTimeUtcMillis());
+            mPlayer.seek(recordingStartTime - recordedProgram.getStartTimeUtcMillis());
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
             }
@@ -337,7 +336,7 @@ public class CumulusTvTifService extends BaseTvInputService {
             return true;
         }
 
-        public TvPlayer getTvPlayer() {
+        public CumulusTvPlayer getTvPlayer() {
             return mPlayer;
         }
 
@@ -438,12 +437,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             Log.i(TAG, "successfully switched channel");
         }
 
-
-        @Override
-        public void onSetCaptionEnabled(boolean enabled) {
-            // Captions currently unsupported
-        }
-
         @Override
         public void onPlayAdvertisement(Advertisement advertisement) {
             createPlayer(TvContractUtils.SOURCE_TYPE_HTTP_PROGRESSIVE,
@@ -454,7 +447,7 @@ public class CumulusTvTifService extends BaseTvInputService {
             releasePlayer();
 
             mPlayer = new CumulusTvPlayer(mContext);
-            mPlayer.registerCallback(new TvPlayer.Callback() {
+            mPlayer.registerCallback(new CumulusTvPlayer.Callback() {
                 @Override
                 public void onStarted() {
                     super.onStarted();

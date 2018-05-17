@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\layout\\notification_template_part_chronometer.xml"
+    }
+]
