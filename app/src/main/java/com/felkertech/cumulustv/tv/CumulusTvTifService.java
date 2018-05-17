@@ -272,17 +272,20 @@ public class CumulusTvTifService extends BaseTvInputService {
             return tuneTime;
         }
 
+
         @TargetApi(Build.VERSION_CODES.M)
         @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public long onTimeShiftGetCurrentPosition() {
-            long currentPos = System.currentTimeMillis();
-
-            if(mPlayer == null) {
-                return currentPos;
+            if (mPlayer == null) {
+                return TvInputManager.TIME_SHIFT_INVALID_TIME;
             }
-
-            return mPlayer.getCurrentPosition();
+            long currentMs = tuneTime + mPlayer.getCurrentPosition();
+            if (DEBUG) {
+                Log.d(TAG, currentMs + "  " + onTimeShiftGetStartPosition() + " start position");
+                Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
+            }
+            return currentMs;
         }
 
         @Override
