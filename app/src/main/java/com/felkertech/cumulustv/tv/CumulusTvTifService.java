@@ -66,7 +66,7 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
 
         private int mSelectedSubtitleTrackIndex;
         private CumulusTvPlayer mPlayer;
-        private LeanbackTvInputService mContext;
+        private Context mContext;
         private Handler mHandler;
         private boolean mCaptionEnabled;
         private Uri mCurrentChannelUri;
@@ -528,7 +528,7 @@ class CumulusTvTifService extends TvInputService.Session implements CumulusTvPla
                     Uri.parse(advertisement.getRequestUrl()));
         }
 
-        public void createPlayer(int videoType, Uri videoUrl) {
+        private void createPlayer(int videoType, Uri videoUrl) {
             releasePlayer();
 
             mPlayer = new CumulusTvPlayer(mContext);

@@ -1,10 +1,12 @@
 package com.felkertech.cumulustv.player;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.media.AudioFormat;
 import android.media.PlaybackParams;
 import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+import android.os.ConditionVariable;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Surface;
 
@@ -32,7 +34,6 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.audio.AudioRendererEventListener;
-import com.google.android.media.tv.companionlibrary.TvPlayer;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -80,33 +81,49 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
     private Handler handler;
 
     private List<ErrorListener> mErrorListeners = new ArrayList<>();
-    final private SimpleExoPlayer mSimpleExoPlayer;
+    final private SimpleExoPlayer player;
     final private TvExtractor.Factory extractorFactory;
     final private PositionReference position;
+    final private ConditionVariable openConditionVariable;
     final private TrickPlayController trickPlayController;
     private float mPlaybackSpeed;
     private Context mContext;
 
-    public CumulusTvPlayer(Context context, String language, TrackSelector trackSelector, LoadControl loadControl) {
+    public CumulusTvPlayer(Context context, String language, Listener listener, boolean audioPassthrough) {
         AudioCapabilities audioCapabilities = AudioCapabilities.getCapabilities(context);
-        mSimpleExoPlayer = ExoPlayerFactory.newSimpleInstance(context, trackSelector, loadControl);
-        mContext = context;
-        mSimpleExoPlayer.addListener(this);
-        mSimpleExoPlayer.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT);
 
         this.listener = listener;
+        boolean passthrough = audioCapabilities.supportsEncoding(AudioFormat.ENCODING_AC3) && audioPassthrough;
 
+        Log.i(TAG, "audio passthrough: " + (passthrough ? "enabled" : "disabled"));
+
+        openConditionVariable = new ConditionVariable();
         handler = new Handler();
 
         position = new PositionReference();
 
+        DefaultTrackSelector trackSelector = new DefaultTrackSelector();
         trackSelector.setParameters(new DefaultTrackSelector.Parameters().withPreferredAudioLanguage(language));
 
-        mSimpleExoPlayer.addListener(this);
-        mSimpleExoPlayer.setVideoDebugListener(this);
+        player = ExoPlayerFactory.newSimpleInstance(
+                new RoboTvRenderersFactory(context, audioPassthrough),
+                trackSelector,
+                new DefaultLoadControl(
+                        new DefaultAllocator(true, C.DEFAULT_BUFFER_SEGMENT_SIZE),
+                        DEFAULT_MIN_BUFFER_MS,
+                        DEFAULT_MAX_BUFFER_MS,
+                        DEFAULT_BUFFER_FOR_PLAYBACK_MS,
+                        DEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS,
+                        C.LENGTH_UNSET,
+                        false
+                )
+        );
+
+        player.addListener(this);
+        player.setVideoDebugListener(this);
 
         extractorFactory = new TvExtractor.Factory(position, this, language, passthrough);
-        trickPlayController = new TrickPlayController(handler, position, mSimpleExoPlayer);
+        trickPlayController = new TrickPlayController(handler, position, player);
     }
 
     public void release() {
@@ -114,22 +131,22 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
 
         handler = null;
 
-        mSimpleExoPlayer.removeListener(this);
-        mSimpleExoPlayer.release();
+        player.removeListener(this);
+        player.release();
 
     }
 
     public void setSurface(Surface surface) {
-        mSimpleExoPlayer.setVideoSurface(surface);
+        player.setVideoSurface(surface);
     }
 
     public void setStreamVolume(float volume) {
-        mSimpleExoPlayer.setVolume(volume);
+        player.setVolume(volume);
     }
 
     public void seek(long position) {
         long p = this.position.timeUsFromPosition(Math.max(position, this.position.getStartPosition()));
-        mSimpleExoPlayer.seekTo(p / 1000);
+        player.seekTo(p / 1000);
     }
 
     public void setPlaybackParams(PlaybackParams params) {
@@ -150,7 +167,7 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
     }
 
     public long getCurrentPosition() {
-        long timeUs = mSimpleExoPlayer.getCurrentPosition() * 1000;
+        long timeUs = player.getCurrentPosition() * 1000;
         long startPos = position.getStartPosition();
         long endPos = position.getEndPosition();
 
@@ -165,7 +182,7 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
     }
 
     public long getBufferedPosition() {
-        long timeUs = mSimpleExoPlayer.getBufferedPosition() * 1000;
+        long timeUs = player.getBufferedPosition() * 1000;
         return position.positionFromTimeUs(timeUs);
     }
 
@@ -179,21 +196,21 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
 
     public void play() {
         trickPlayController.stop();
-        mSimpleExoPlayer.setPlayWhenReady(true);
+        player.setPlayWhenReady(true);
     }
 
     public void pause() {
         trickPlayController.stop();
-        mSimpleExoPlayer.setPlayWhenReady(false);
+        player.setPlayWhenReady(false);
     }
 
     public boolean isPaused() {
-        return !mSimpleExoPlayer.getPlayWhenReady();
+        return !player.getPlayWhenReady();
     }
 
     public void stop() {
         trickPlayController.reset();
-        mSimpleExoPlayer.stop();
+        player.stop();
         position.reset();
     }
 
@@ -210,7 +227,7 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
         try {
             MediaSource videoSource = MediaSourceFactory.getMediaSourceFor(mContext, mediaUri);
             // Prepare the player with the source.
-            mSimpleExoPlayer.prepare(videoSource);
+            player.prepare(videoSource);
         } catch (MediaSourceFactory.NotMediaException e) {
             for (ErrorListener listener : mErrorListeners) {
                 listener.onError(e);
@@ -341,6 +358,18 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
 
     @Override
     public void onAudioEnabled(DecoderCounters counters) {
+    }
+
+    @Override
+    public void onStreamError(int status) {
+        if(listener != null) {
+            listener.onStreamError(status);
+        }
+    }
+
+    @Override
+    public void onServerTuned(int status) {
+        openConditionVariable.open();
     }
 
     @Override
