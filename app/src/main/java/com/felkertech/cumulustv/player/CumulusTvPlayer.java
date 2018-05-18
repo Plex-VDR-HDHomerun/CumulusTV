@@ -9,6 +9,10 @@ import android.os.ConditionVariable;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Surface;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
+import android.view.Surface;
 
 
 import com.google.android.exoplayer2.C;
@@ -36,12 +40,14 @@ import com.felkertech.cumulustv.player.source.PositionReference;
 import com.felkertech.cumulustv.player.utils.TrickPlayController;
 import com.felkertech.cumulustv.player.extractor.TvExtractor;
 import com.felkertech.cumulustv.player.LeanbackTvRenderersFactory;
+import com.google.android.media.tv.companionlibrary.TvPlayer;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.EventListener, TvExtractor.Listener, AudioRendererEventListener, VideoRendererEventListener {
+public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.Player.EventListener, TvExtractor.Listener, AudioRendererEventListener, VideoRendererEventListener {
 
     private static final String TAG = "CumulusTvPlayer";
 
