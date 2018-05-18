@@ -364,45 +364,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             return super.onTune(channelUri);
         }
 
-        public void onTracksChanged(StreamBundle bundle) {
-            final List<TvTrackInfo> tracks = new ArrayList<>(16);
-
-            // create video track (limit surface size to display size)
-            TvTrackInfo info = TrackInfoMapper.findTrackInfo(
-                    bundle,
-                    StreamBundle.CONTENT_VIDEO,
-                    0);
-
-            if(info != null) {
-                tracks.add(info);
-            }
-
-            // create audio tracks
-            int audioTrackCount = bundle.getStreamCount(StreamBundle.CONTENT_AUDIO);
-
-            for(int i = 0; i < audioTrackCount; i++) {
-                info = TrackInfoMapper.findTrackInfo(bundle, StreamBundle.CONTENT_AUDIO, i);
-
-                if(info != null) {
-                    tracks.add(info);
-                }
-            }
-
-            notifyTracksChanged(tracks);
-        }
-
-        private void tune(Uri channelUri) {
-            if(mPlayer == null) {
-                Log.d(TAG, "tune: mPlayer == null ?");
-                return;
-            }
-
-            Log.i(TAG, "onTune: " + channelUri);
-
-            Log.i(TAG, "successfully switched channel");
-        }
-
-
         @Override
         public void onSetCaptionEnabled(boolean enabled) {
             // Captions currently unsupported
