@@ -14,12 +14,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 25
     buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 27
+        targetSdkVersion 25
         consumerProguardFiles 'proguard-rules.txt'
 
         ndk {
@@ -50,6 +50,6 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:support-core-utils:27.0.1"
+    compile "com.android.support:support-core-utils:25.4.0"
     compile "com.google.android.exoplayer:exoplayer-core:2.6.1"
 }
