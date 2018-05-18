@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\drawable\\notification_bg_low.xml"
+        "merged": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/drawable/notification_icon_background.xml"
     },
     {
-        "merged": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\drawable\\notification_tile_bg.xml"
+        "merged": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/drawable/notification_bg.xml"
     },
     {
-        "merged": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\drawable\\notification_icon_background.xml"
+        "merged": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
+        "source": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/drawable/notification_bg_low.xml"
     },
     {
-        "merged": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\drawable\\notification_bg.xml"
+        "merged": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/drawable/notification_tile_bg.xml"
     }
 ]

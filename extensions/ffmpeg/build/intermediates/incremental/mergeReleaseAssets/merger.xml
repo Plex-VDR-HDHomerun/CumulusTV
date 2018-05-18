@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/assets"/><source path="/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/release/assets"/></dataSet></merger>

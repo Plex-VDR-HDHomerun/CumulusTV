@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+        "outputFile": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 106
                 },
                 "from": {
-                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Timeshift\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.1\\res\\values-port\\values-port.xml",
+                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-port/values-port.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

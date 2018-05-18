@@ -14,36 +14,28 @@ import android.view.Surface;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
-import com.google.android.exoplayer2.LoadControl;
+import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.PlaybackParameters;
-import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.audio.AudioCapabilities;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.extractor.ExtractorsFactory;
+import com.google.android.exoplayer2.audio.AudioRendererEventListener;
+import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.decoder.DecoderCounters;
-import com.google.android.exoplayer2.audio.AudioRendererEventListener;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.util.MimeTypes;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
+import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
 import com.felkertech.cumulustv.player.source.PositionReference;
 import com.felkertech.cumulustv.player.utils.TrickPlayController;
 import com.felkertech.cumulustv.player.extractor.TvExtractor;
+import com.felkertech.cumulustv.player.LeanbackTvRenderersFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,12 +67,15 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
         void onVideoTrackChanged(Format format);
 
         void onRenderedFirstFrame();
+
+        void onStreamError(int status);
     }
 
     private Listener listener;
     private Handler handler;
 
     private List<ErrorListener> mErrorListeners = new ArrayList<>();
+    private List<Callback> mTvCallbacks = new ArrayList<>();
     final private SimpleExoPlayer player;
     final private TvExtractor.Factory extractorFactory;
     final private PositionReference position;
@@ -106,7 +101,7 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
         trackSelector.setParameters(new DefaultTrackSelector.Parameters().withPreferredAudioLanguage(language));
 
         player = ExoPlayerFactory.newSimpleInstance(
-                new RoboTvRenderersFactory(context, audioPassthrough),
+                new LeanbackTvRenderersFactory(context, audioPassthrough),
                 trackSelector,
                 new DefaultLoadControl(
                         new DefaultAllocator(true, C.DEFAULT_BUFFER_SEGMENT_SIZE),
@@ -214,6 +209,16 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
         position.reset();
     }
 
+    @Override
+    public void registerCallback(Callback callback) {
+        mTvCallbacks.add(callback);
+    }
+
+    @Override
+    public void unregisterCallback(Callback callback) {
+        mTvCallbacks.remove(callback);
+    }
+
     public void registerErrorListener(ErrorListener callback) {
         mErrorListeners.add(callback);
     }
@@ -288,12 +293,24 @@ public class CumulusTvPlayer implements com.google.android.exoplayer2.Player.Eve
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        Log.i(TAG, "onPlayerStateChanged " + playWhenReady + " " + playbackState);
-        listener.onPlayerStateChanged(playWhenReady, playbackState);
+        for (Callback tvCallback : mTvCallbacks) {
+            if (playWhenReady && playbackState == ExoPlayer.STATE_ENDED) {
+                tvCallback.onCompleted();
+            } else if (playWhenReady && playbackState == ExoPlayer.STATE_READY) {
+                tvCallback.onStarted();
+            }
+        }
+        Log.d(TAG, "Player state changed to " + playbackState + ", PWR: " + playWhenReady);
     }
+
     @Override
     public void onPlayerError(ExoPlaybackException error) {
-        listener.onPlayerError(error);
+        for (Callback tvCallback : mTvCallbacks) {
+            tvCallback.onError();
+        }
+        for (ErrorListener listener : mErrorListeners) {
+            listener.onError(error);
+        }
     }
 
     @Override
