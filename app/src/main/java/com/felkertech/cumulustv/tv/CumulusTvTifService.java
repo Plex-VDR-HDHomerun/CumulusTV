@@ -364,30 +364,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             return super.onTune(channelUri);
         }
 
-        private void postTune(Uri channelUri, long delayMillis) {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
-            }
-
-            // remove pending tune request
-            mHandler.removeCallbacks(mTune);
-
-            if(channelUri != null) {
-                mTune.setChannelUri(channelUri);
-            }
-
-            // post new tune request
-            mHandler.postDelayed(mTune, delayMillis);
-        }
-
-        public void onDisconnect() {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_UNAVAILABLE);
-            }
-
-            postTune(null, 10 * 1000);
-        }
-
         public void onTracksChanged(StreamBundle bundle) {
             final List<TvTrackInfo> tracks = new ArrayList<>(16);
 
