@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
+        "outputFile": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 218
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 285
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 349
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 465
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 591
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 717
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 845
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -164,7 +164,7 @@
                     "endOffset": 1017
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -185,7 +185,7 @@
                     "endOffset": 1355
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-v21/values-v21.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,

@@ -300,9 +300,9 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
         for (Callback tvCallback : mTvCallbacks) {
-            if (playWhenReady && playbackState == ExoPlayer.STATE_ENDED) {
+            if (playWhenReady && playbackState == player.STATE_ENDED) {
                 tvCallback.onCompleted();
-            } else if (playWhenReady && playbackState == ExoPlayer.STATE_READY) {
+            } else if (playWhenReady && playbackState == player.STATE_READY) {
                 tvCallback.onStarted();
             }
         }

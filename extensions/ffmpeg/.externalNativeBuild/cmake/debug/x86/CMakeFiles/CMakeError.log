@@ -1,30 +1,30 @@
 Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-gcc 
-Build flags: -isystem;/home/jetson/Android/Sdk/ndk-bundle/sysroot/usr/include/i686-linux-android;-D__ANDROID_API__=21;-g;-DANDROID;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-mstackrealign;-Wa,--noexecstack;-Wformat;-Werror=format-security;
+Compiler: C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-gcc.exe 
+Build flags: -isystem;C:/AndroidSDK/ndk-bundle/sysroot/usr/include/i686-linux-android;-D__ANDROID_API__=21;-g;-DANDROID;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-mstackrealign;-Wa,--noexecstack;-Wformat;-Werror=format-security;
 Id flags: 
 
 The output was:
 1
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot open crtbegin_dynamic.o: No such file or directory
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot open crtend_android.o: No such file or directory
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot find -lc
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot find -ldl
-collect2: error: ld returned 1 exit status
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot open crtbegin_dynamic.o: No such file or directory
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot open crtend_android.o: No such file or directory
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot find -lc
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot find -ldl
+collect2.exe: error: ld returned 1 exit status
 
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-g++ 
-Build flags: -isystem;/home/jetson/Android/Sdk/ndk-bundle/sysroot/usr/include/i686-linux-android;-D__ANDROID_API__=21;-g;-DANDROID;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-mstackrealign;-Wa,--noexecstack;-Wformat;-Werror=format-security;;
+Compiler: C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-g++.exe 
+Build flags: -isystem;C:/AndroidSDK/ndk-bundle/sysroot/usr/include/i686-linux-android;-D__ANDROID_API__=21;-g;-DANDROID;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-mstackrealign;-Wa,--noexecstack;-Wformat;-Werror=format-security;;
 Id flags: 
 
 The output was:
 1
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot open crtbegin_dynamic.o: No such file or directory
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot open crtend_android.o: No such file or directory
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot find -lstdc++
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot find -lm
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot find -lc
-/home/jetson/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld: error: cannot find -ldl
-collect2: error: ld returned 1 exit status
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot open crtbegin_dynamic.o: No such file or directory
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot open crtend_android.o: No such file or directory
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot find -lstdc++
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot find -lm
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot find -lc
+C:/AndroidSDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/../lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld.exe: error: cannot find -ldl
+collect2.exe: error: ld returned 1 exit status
 
 

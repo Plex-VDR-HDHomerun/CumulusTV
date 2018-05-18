@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/incremental/mergeDebugResources/merged.dir/values-my/values-my.xml",
+        "outputFile": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 151
                 },
                 "from": {
-                    "file": "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/exploded-aar/com.android.support/support-compat/27.0.1/res/values-my/values-my.xml",
+                    "file": "C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\27.0.2\\res\\values-my\\values-my.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

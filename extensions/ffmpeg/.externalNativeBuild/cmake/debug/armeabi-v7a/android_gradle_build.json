@@ -2,11 +2,11 @@
 {
 	"buildFiles" : 
 	[
-		"/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/CMakeLists.txt"
+		"C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/src/main/cpp/CMakeLists.txt"
 	],
 	"cleanCommands" : 
 	[
-		"/home/jetson/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a --target clean"
+		"C:\\AndroidSDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target clean"
 	],
 	"cppFileExtensions" : [ "cc" ],
 	"libraries" : 
@@ -16,58 +16,58 @@
 			"abi" : "armeabi-v7a",
 			"artifactName" : "avcodec",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libavcodec.so",
-			"toolchain" : "4528626086574546039"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libavcodec.so",
+			"toolchain" : "2161888223"
 		},
 		"avresample-Debug-armeabi-v7a" : 
 		{
 			"abi" : "armeabi-v7a",
 			"artifactName" : "avresample",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libavresample.so",
-			"toolchain" : "4528626086574546039"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libavresample.so",
+			"toolchain" : "2161888223"
 		},
 		"avutil-Debug-armeabi-v7a" : 
 		{
 			"abi" : "armeabi-v7a",
 			"artifactName" : "avutil",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libavutil.so",
-			"toolchain" : "4528626086574546039"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libavutil.so",
+			"toolchain" : "2161888223"
 		},
 		"ffmpeg-Debug-armeabi-v7a" : 
 		{
 			"abi" : "armeabi-v7a",
 			"artifactName" : "ffmpeg",
-			"buildCommand" : "/home/jetson/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a --target ffmpeg",
+			"buildCommand" : "C:\\AndroidSDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target ffmpeg",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
-					"flags" : "  --sysroot=/home/jetson/Android/Sdk/ndk-bundle/sysroot  -Dffmpeg_EXPORTS -I/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/./include -isystem /home/jetson/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/jetson/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -isystem /home/jetson/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /home/jetson/Android/Sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security   -O0  -fPIC    -c ",
-					"src" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/ffmpeg_jni.cc",
-					"workingDirectory" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a"
+					"flags" : "  --sysroot=C:/AndroidSDK/ndk-bundle/sysroot  -Dffmpeg_EXPORTS -IC:\\Users\\Z400\\Plex-DVR-Input-Testing\\extensions\\ffmpeg\\src\\main\\cpp\\.\\include -isystem C:\\AndroidSDK\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem C:\\AndroidSDK\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\armeabi-v7a\\include -isystem C:\\AndroidSDK\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -isystem C:/AndroidSDK/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security   -O0  -fPIC    -c ",
+					"src" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/src/main/cpp/ffmpeg_jni.cc",
+					"workingDirectory" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a"
 				}
 			],
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/build/intermediates/cmake/debug/obj/armeabi-v7a/libffmpeg.so",
-			"toolchain" : "4528626086574546039"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/build/intermediates/cmake/debug/obj/armeabi-v7a/libffmpeg.so",
+			"toolchain" : "2161888223"
 		},
 		"swresample-Debug-armeabi-v7a" : 
 		{
 			"abi" : "armeabi-v7a",
 			"artifactName" : "swresample",
 			"buildType" : "debug",
-			"output" : "/home/jetson/StudioProjects/Plex-DVR-Input-TS/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libswresample.so",
-			"toolchain" : "4528626086574546039"
+			"output" : "C:/Users/Z400/Plex-DVR-Input-Testing/extensions/ffmpeg/src/main/cpp/ffmpeg/libs/armeabi-v7a/libswresample.so",
+			"toolchain" : "2161888223"
 		}
 	},
 	"toolchains" : 
 	{
-		"4528626086574546039" : 
+		"2161888223" : 
 		{
-			"cCompilerExecutable" : "/home/jetson/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc",
-			"cppCompilerExecutable" : "/home/jetson/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++"
+			"cCompilerExecutable" : "C:/AndroidSDK/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-gcc.exe",
+			"cppCompilerExecutable" : "C:/AndroidSDK/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-g++.exe"
 		}
 	}
 }

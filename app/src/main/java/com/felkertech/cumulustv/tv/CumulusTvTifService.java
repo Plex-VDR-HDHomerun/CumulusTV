@@ -2,12 +2,17 @@ package com.felkertech.cumulustv.tv;
 
 import android.annotation.TargetApi;
 import android.content.ComponentName;
+import android.content.ContentValues;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.res.Resources;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
 import android.media.tv.TvTrackInfo;
+import android.media.tv.TvContract;
 import android.media.PlaybackParams;
 import android.view.Surface;
 import android.net.Uri;
@@ -26,6 +31,8 @@ import android.view.Surface;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.exoplayer2.Format;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
@@ -54,7 +61,7 @@ import java.util.List;
 /**
  * An instance of {@link BaseTvInputService} which plays Cumulus Tv videos.
  */
-public class CumulusTvTifService extends BaseTvInputService {
+public class CumulusTvTifService extends BaseTvInputService implements CumulusTvPlayer.Listener {
     private static final String TAG = CumulusTvTifService.class.getSimpleName();
     private static final boolean DEBUG = false;
     private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
@@ -90,6 +97,7 @@ public class CumulusTvTifService extends BaseTvInputService {
         private CumulusTvPlayer mPlayer;
         private Handler mHandler;
         private boolean mCaptionEnabled;
+        private ContentResolver mContentResolver;
         private String mInputId;
         private Context mContext;
         private boolean stillTuning;
@@ -289,6 +297,11 @@ public class CumulusTvTifService extends BaseTvInputService {
         }
 
         @Override
+        public void onTimeShiftSeekTo(long timeMs) {
+            mPlayer.seek(timeMs);
+        }
+
+        @Override
         public void onTimeShiftSetPlaybackParams(PlaybackParams params) {
             mPlayer.setPlaybackParams(params);
         }
@@ -425,13 +438,47 @@ public class CumulusTvTifService extends BaseTvInputService {
             notifyTracksChanged(tracks);
         }
 
+        @Override
+        public void onAudioTrackChanged(Format format) {
+            Log.d(TAG, "onAudioTrackChanged: " + format.id);
+            notifyTrackSelected(TvTrackInfo.TYPE_AUDIO, format.id);
+        }
+
+        @Override
+        public void onVideoTrackChanged(Format format) {
+            ContentValues values = new ContentValues();
+
+            int height = format.height;
+
+            if(height == 720) {
+                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_720P);
+            }
+
+            if(height > 720 && height <= 1080) {
+                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_1080I);
+            }
+            else if(height == 2160) {
+                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_2160P);
+            }
+            else if(height == 4320) {
+                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_4320P);
+            }
+            else {
+                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_576I);
+            }
+
+            if(mContentResolver.update(getCurrentChannelUri(), values, null, null) != 1) {
+                Log.e(TAG, "unable to update channel properties");
+            }
+
+            notifyTrackSelected(TvTrackInfo.TYPE_VIDEO, format.id);
+        }
+
         private void tune(Uri channelUri) {
             if(mPlayer == null) {
                 Log.d(TAG, "tune: mPlayer == null ?");
                 return;
             }
-
-            Log.i(TAG, "onTune: " + channelUri);
 
             Log.i(TAG, "onTune: " + channelUri);
 
@@ -453,7 +500,7 @@ public class CumulusTvTifService extends BaseTvInputService {
         private void createPlayer(int videoType, Uri videoUrl) {
             releasePlayer();
 
-            mPlayer = new CumulusTvPlayer(mContext);
+            mPlayer = new CumulusTvPlayer(getApplicationContext(),
             mPlayer.registerCallback(new TvPlayer.Callback() {
                 @Override
                 public void onStarted() {

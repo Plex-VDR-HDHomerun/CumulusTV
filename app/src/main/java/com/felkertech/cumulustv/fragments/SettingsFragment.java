@@ -24,6 +24,7 @@ import android.support.v7.view.ContextThemeWrapper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import android.preference.PreferenceManager;
 
 import com.felkertech.cumulustv.model.ChannelDatabase;
 import com.felkertech.cumulustv.services.CumulusJobService;
@@ -68,6 +69,18 @@ public class SettingsFragment extends LeanbackSettingsFragment
                 preferenceScreen.getKey());
         startPreferenceFragment(frag);
         return true;
+    }
+
+    public static boolean getPassthrough(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        return prefs.getBoolean("passthrough", false);
+    }
+
+    static void setPassthrough(Context context, boolean passthrough) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        SharedPreferences.Editor e = prefs.edit();
+        e.putBoolean("passthrough", passthrough);
+        e.apply();
     }
 
     @Override
