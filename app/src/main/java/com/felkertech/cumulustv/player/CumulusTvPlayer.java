@@ -165,6 +165,11 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
         position.reset();
     }
 
+    public void release() {
+        player.removeListener(this);
+        player.release();
+    }
+
     @Override
     public void registerCallback(Callback callback) {
         mTvCallbacks.add(callback);
