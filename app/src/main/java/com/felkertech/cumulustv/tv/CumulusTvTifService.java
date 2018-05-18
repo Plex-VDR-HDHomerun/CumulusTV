@@ -2,17 +2,13 @@ package com.felkertech.cumulustv.tv;
 
 import android.annotation.TargetApi;
 import android.content.ComponentName;
-import android.content.ContentValues;
 import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.res.Resources;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
 import android.media.tv.TvTrackInfo;
-import android.media.tv.TvContract;
 import android.media.PlaybackParams;
 import android.view.Surface;
 import android.net.Uri;
@@ -27,12 +23,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.accessibility.CaptioningManager;
-import android.view.Surface;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.exoplayer2.Format;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
@@ -52,7 +45,6 @@ import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.felkertech.cumulustv.player.StreamBundle;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +53,7 @@ import java.util.List;
 /**
  * An instance of {@link BaseTvInputService} which plays Cumulus Tv videos.
  */
-public class CumulusTvTifService extends BaseTvInputService implements CumulusTvPlayer.Listener {
+public class CumulusTvTifService extends BaseTvInputService {
     private static final String TAG = CumulusTvTifService.class.getSimpleName();
     private static final boolean DEBUG = false;
     private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
@@ -104,21 +96,6 @@ public class CumulusTvTifService extends BaseTvInputService implements CumulusTv
         private JsonChannel jsonChannel;
         private long tuneTime;
         private boolean isWeb;
-
-        private class TuneRunnable implements Runnable {
-            private Uri mChannelUri;
-
-            void setChannelUri(Uri channelUri) {
-                mChannelUri = channelUri;
-            }
-
-            @Override
-            public void run() {
-                tune(mChannelUri);
-            }
-        }
-
-        private TuneRunnable mTune = new TuneRunnable();
 
         RichTvInputSessionImpl(Context context, String inputId) {
             super(context, inputId);
@@ -298,7 +275,7 @@ public class CumulusTvTifService extends BaseTvInputService implements CumulusTv
 
         @Override
         public void onTimeShiftSeekTo(long timeMs) {
-            mPlayer.seek(timeMs);
+            mPlayer.seekTo(timeMs);
         }
 
         @Override
@@ -341,7 +318,7 @@ public class CumulusTvTifService extends BaseTvInputService implements CumulusTv
 
             long recordingStartTime = recordedProgram.getInternalProviderData()
                     .getRecordedProgramStartTime();
-            mPlayer.seek(recordingStartTime - recordedProgram.getStartTimeUtcMillis());
+            mPlayer.seekTo(recordingStartTime - recordedProgram.getStartTimeUtcMillis());
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
             }
@@ -438,42 +415,6 @@ public class CumulusTvTifService extends BaseTvInputService implements CumulusTv
             notifyTracksChanged(tracks);
         }
 
-        @Override
-        public void onAudioTrackChanged(Format format) {
-            Log.d(TAG, "onAudioTrackChanged: " + format.id);
-            notifyTrackSelected(TvTrackInfo.TYPE_AUDIO, format.id);
-        }
-
-        @Override
-        public void onVideoTrackChanged(Format format) {
-            ContentValues values = new ContentValues();
-
-            int height = format.height;
-
-            if(height == 720) {
-                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_720P);
-            }
-
-            if(height > 720 && height <= 1080) {
-                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_1080I);
-            }
-            else if(height == 2160) {
-                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_2160P);
-            }
-            else if(height == 4320) {
-                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_4320P);
-            }
-            else {
-                values.put(TvContract.Channels.COLUMN_VIDEO_FORMAT, TvContract.Channels.VIDEO_FORMAT_576I);
-            }
-
-            if(mContentResolver.update(getCurrentChannelUri(), values, null, null) != 1) {
-                Log.e(TAG, "unable to update channel properties");
-            }
-
-            notifyTrackSelected(TvTrackInfo.TYPE_VIDEO, format.id);
-        }
-
         private void tune(Uri channelUri) {
             if(mPlayer == null) {
                 Log.d(TAG, "tune: mPlayer == null ?");
@@ -500,7 +441,8 @@ public class CumulusTvTifService extends BaseTvInputService implements CumulusTv
         private void createPlayer(int videoType, Uri videoUrl) {
             releasePlayer();
 
-            mPlayer = new CumulusTvPlayer(getApplicationContext(),
+            mPlayer = new CumulusTvPlayer(mContext);
+
             mPlayer.registerCallback(new TvPlayer.Callback() {
                 @Override
                 public void onStarted() {
@@ -542,6 +484,29 @@ public class CumulusTvTifService extends BaseTvInputService implements CumulusTv
         public void onRelease() {
             super.onRelease();
             releasePlayer();
+        }
+
+        @Override
+        public boolean onSetSurface(Surface surface) {
+            if(mPlayer == null) {
+                return false;
+            }
+
+            Log.i(TAG, "set surface");
+            mPlayer.setSurface(surface);
+            return true;
+        }
+
+        @Override
+        public void onSurfaceChanged(int format, int width, int height) {
+            Log.i(TAG, "surface changed: " + width + "x" + height + " format: " + format);
+        }
+
+        @Override
+        public void onSetStreamVolume(float volume) {
+            if(mPlayer != null) {
+                mPlayer.setStreamVolume(volume);
+            }
         }
 
         @Override
