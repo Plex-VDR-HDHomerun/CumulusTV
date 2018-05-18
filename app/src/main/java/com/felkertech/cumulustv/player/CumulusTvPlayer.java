@@ -54,7 +54,7 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     private List<Callback> mTvCallbacks = new ArrayList<>();
     final private SimpleExoPlayer player;
     final private PositionReference position;
-    final private TrickPlayController trickPlayController;
+    //final private TrickPlayController trickPlayController;
     private float mPlaybackSpeed;
     private Context mContext;
 
@@ -73,22 +73,11 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
 
     public CumulusTvPlayer(Context context, DefaultTrackSelector trackSelector, LoadControl loadControl) {
         player = ExoPlayerFactory.newSimpleInstance(context, trackSelector, loadControl);
-        handler = new Handler();
         mContext = context;
         player.addListener(this);
         position = new PositionReference();
-        trickPlayController = new TrickPlayController(handler, position, player);
+        //trickPlayController = new TrickPlayController(handler, position, player);
         player.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT);
-    }
-
-    public void release() {
-        stop();
-
-        handler = null;
-
-        player.removeListener(this);
-        player.release();
-
     }
 
     public void setSurface(Surface surface) {
@@ -108,7 +97,7 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
         player.setPlaybackParams(params);
         Log.d(TAG, "speed: " + params.getSpeed());
         mPlaybackSpeed = params.getSpeed();
-        trickPlayController.start(params.getSpeed());
+        //trickPlayController.start(params.getSpeed());
     }
 
     public float getPlaybackSpeed() {
@@ -152,12 +141,12 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     }
 
     public void play() {
-        trickPlayController.stop();
+        //trickPlayController.stop();
         player.setPlayWhenReady(true);
     }
 
     public void pause() {
-        trickPlayController.stop();
+        //trickPlayController.stop();
         player.setPlayWhenReady(false);
     }
 
@@ -171,7 +160,7 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     }
 
     public void stop() {
-        trickPlayController.reset();
+        //trickPlayController.reset();
         player.stop();
         position.reset();
     }
