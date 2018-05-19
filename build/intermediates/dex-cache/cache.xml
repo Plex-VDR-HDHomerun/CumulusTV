@@ -3,417 +3,417 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.media.tv\companionlibrary\1.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="216789168ced50f783f7c1751799a0cf4a463b26">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.media.tv-companionlibrary-1.0.1_63cbd7132ad1146a3de7a0bc23447b8450fc6c4c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="73fe8ab7f76e41d0cabbc4fa3399557de52efb2d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-10.0.0_961594c8c167f3e0067d6bad8ea8024f3f1c9ce3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\leanback-v17\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e3e524f475e43516ea70ef2d15d1cc56f0ec97d5">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-leanback-v17-25.4.0_ead3fd718799dc6787d234dfbcb8034ab682ee51.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.0.0\a7782471b2a0de8fec071b8094a8aaf61c46ab70\support-annotations-27.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="a7782471b2a0de8fec071b8094a8aaf61c46ab70">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\support-annotations-27.0.0_4d4a1816d036cc454e5f23e4631295cc776aa21b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\palette-v7\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="032c65a3b537f89d5510a7cb18a0404c7f65c816">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-palette-v7-25.4.0_888e4d0bd2c680a6fb9a3f044060d75b28ba8326.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\.gradle\caches\modules-2\files-2.1\com.google.ads.interactivemedia.v3\interactivemedia\3.5.2\21246e1a6815dc499443d46f9f5dbe954fd2b746\interactivemedia-3.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="21246e1a6815dc499443d46f9f5dbe954fd2b746">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\interactivemedia-3.5.2_ad4087ac4036f8da23f60c30aff6a86788f0e999.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="4961be1437163ab598620a3c907c0f3432936f51">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.4.0_c165abcb6758d4ccece36a728c493b6228c39a4b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.4.0\5b72bf48563ea8410e650de14aa33ff69a3e8c35\okio-1.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5b72bf48563ea8410e650de14aa33ff69a3e8c35">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\okio-1.4.0_bbaf14e915c23e1fd782ecac1ac3800a90ad81f5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer-hls\2.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="03ebbd941ee173b997d517c023d57bf0fc96929d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.exoplayer-exoplayer-hls-2.6.1_cf105f5f8d698c3e4ec93495df5c66a7383fc241.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.4.0_3d1f357af423484cd61647ab3dca8ce8772f086e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\preference-v14\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="2bec381d4ffc4ae89124e3083ff446f9c468dda0">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-preference-v14-25.4.0_3f2190ba35d81ef2a579370817c963f04cf2fa7d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="441ace5a20e7fcf94f30b4394d882ed2f79237c3">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-answers-1.3.1_c734e29b17d9f427959e84a8ec4c82b9cab8fd36.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.5.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="2b1fb39b3c4feeb031b00744fbbe464e3d31a88d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-crashlytics-2.5.1_84ab0974b4e231b1d53d9a18adbf9cf23f4c775d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="849da156edbc1201f5cd6e237524187442a62af3">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-lite-10.0.0_7ba3805bc4a2d615afb920cc6940cab8d9158cf4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer-dash\2.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="663246efbd10b60ba71e1658d961b704b2814f3f">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.exoplayer-exoplayer-dash-2.6.1_261364197bd59a6f5d80178fbd6271073b59cf5e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.4\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="467417b1695583fbaee8de0e5f4202b6a2b578e1">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-crashlytics-core-2.3.4_b95aaa346094487d0df045e53895358d1858cdf7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.4.0\40340c0748190fe897baf7bffbc1b282734294e5\okhttp-2.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\okhttp-2.4.0_98f502029a103c253ad5d4c8c757060a3b08a88e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="75c54c470e19b251749e6e6c2cf3d73c0b50aa64">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.pnikosis-materialish-progress-1.5_cc03afe0137c52d72a686a40363eb0fa73206bcf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.1.3\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b7a78990c10481f43cb4909f535ef4f11e60f1ab">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-beta-1.1.3_3820501f6c7212420e2fb882ae812edc72abcd99.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.4.0\jars\classes.jar"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.4.0_1aacc3eb7b6fb4bda652b40bf1d6440a1e89d2d2.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.4.0_65aa83b7572803cde9306c563fc8b7de5e6a63a2.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.github.Fleker\plugins\unspecified\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="73cf5b0e6c8ead4b2fe487d5d46fd90357d5d9dc">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.github.Fleker-plugins-unspecified_09966b3ca9897dd37ec7a9c96a27c84e53ca3f5c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="6e65060ef2ec6ec98365250d2119d7968626fd3f">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\io.fabric.sdk.android-fabric-1.3.5_2af1db2e42a1cb9255b2b9b23a36614b6e40217e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\customtabs\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c6e2b588eb35ac6b34dc7a007a35bbec3cccda4d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-customtabs-25.4.0_475b1397507f583bda71cd1d71ebfcdf9b24a37e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.github.Fleker\settingsmanager-common\1.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="ca75c062ed024385befef143a03e158bcdf86f59">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.github.Fleker-settingsmanager-common-1.2.1_98becaf34d004093dd49ce5146847cc895061bb4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\preference-leanback-v17\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="1d1e2665bad672383210664318ccc3bcde90f595">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-preference-leanback-v17-25.4.0_f8a1e0024f11d377bb36d9ddabd913d362dd6632.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.0\jars\classes.jar"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/10.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="4701f9f79c8a00564912b21b0cb0cec3f51a7d23">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-drive-10.0.0_ad34c71f83dc635249718e63323ed6b70cabd98e.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-drive-10.0.0_466ac91c7399292f7dc1584ef51416ac4e5fe892.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="ae809d521d9f7da5337a82edd64eea23a76e788d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gass-10.0.0_21e353ac745e1886ae4458d04d56c6bb257751b7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.4.0_4d5bf08121b35ef14246069e0d5f5547f6cde426.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.github.Fleker\settingsmanager\1.3.5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="50ce22b7e4bbbf49900f49bb9f1d90432f8d629d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.github.Fleker-settingsmanager-1.3.5_f8dcbfb7659293bf1dcb83610d60ef138f5fabea.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.4.0_363f772e08b819a746ae9c67ea75ad9805233b26.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer-ui\2.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9ca8a321d9d66727f6017b716c0615fa6aa21d96">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.exoplayer-exoplayer-ui-2.6.1_f3a619c1231d7fd135156f923f7fa8669b0a0a13.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.4.0_b324eefe3971cc95e8d431b36a77d03a2c110531.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.github.paolorotolo\appintro\3.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="88a6346382185deaeb9e3cc7d89717bc67d2fb16">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.github.paolorotolo-appintro-3.2.0_f1c49e3e17344085c2d445627dfede04ccfd3562.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\glide-3.7.0_172d3d7406cafb75e4205ebd28bf35b04e0a1de4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="985be85104f6d0c5c5e51e7b7e60d8883a98ac64">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-10.0.0_f82520578d0e4d6c585ea18e075072d1a47284a8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.4.0_63090f58d0cf9f2f2bced7d1aa83b9de160af2f5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fb0229499e600b485a276d4e31161a3ae31c144c">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-clearcut-10.0.0_593cfe5426b6107272bb6a3dc01ac3913383aad6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer-core\2.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fd6a954de38a79d26bb3b369ae69753fa3a175fb">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.exoplayer-exoplayer-core-2.6.1_06a90f4a5a8cc5ef972a73191f141de358a3b9f5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer\2.6.1\jars\classes.jar"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/2.6.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="3ecb9d2aad9a03dd8d0914b715cc1fc11d942c6c">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.exoplayer-exoplayer-2.6.1_2827754cbc0b17622dda2c89cf238c9950532cf8.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-2.6.1_7a49f088f92802dabbfe7cc1d98ac5842c50ff42.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.4.0\jars\classes.jar"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics-core/2.3.4/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.4.0_c801a6e72362412ee8de45a5533951a03aaf2e46.jar" />
+        sha1="467417b1695583fbaee8de0e5f4202b6a2b578e1">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-crashlytics-core-2.3.4_9d38243f52ed5ccac64e03f42942721d2c4e8d9d.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.4.0_cd3c87a892f9ea4b73ecaa9a4e37f53723b8bc46.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="75dbc3537bc912d077b3db2f5ac72d5b43644b2c">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-10.0.0_3f3c381e7522b3d3a43a3dafd2ba52a119687978.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="3347c3e7056fabc88bdbd8fdae65ddf2b674d977">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-10.0.0_4b90c6f8d9acf2cdb895e545f214315ad8183e62.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer-smoothstreaming\2.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="32636dfc1db28a118151b9566da35a6592d9dbbd">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.google.android.exoplayer-exoplayer-smoothstreaming-2.6.1_0a0f319a847aaf7a58ec4edc280203c1522ee45e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\preference-v7\25.4.0\jars\classes.jar"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/preference-v7/25.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="824923b2ab3133cbf3c315a7c59ea300f1e17d78">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-preference-v7-25.4.0_a7a9f403670898362f653a2f1391ff9c8be1ab96.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-preference-v7-25.4.0_82f9845c181dbfdc7c96b438cc36dc108c70f5bc.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.4.0\jars\classes.jar"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c6e2b588eb35ac6b34dc7a007a35bbec3cccda4d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-25.4.0_89c3e146f6b9b334c48dde86d97e8b22946ea88b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.4.0_7662e1e34639645800f37bce05730ea22788e866.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/palette-v7/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="032c65a3b537f89d5510a7cb18a0404c7f65c816">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-palette-v7-25.4.0_b6b8890ada613b007551e613653e7027ef364e43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/okhttp-2.4.0_6af697adabd3afaa4adb724193aa1b2d4f0d748d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/leanback-v17/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e3e524f475e43516ea70ef2d15d1cc56f0ec97d5">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-leanback-v17-25.4.0_e4514e6b37b385243b0ccfd5d5b4201a84639b38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.github.fleker/settingsmanager-common/1.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ca75c062ed024385befef143a03e158bcdf86f59">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.github.fleker-settingsmanager-common-1.2.1_68c685361d85f36aee28faf8abd5e00383a0e6d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4961be1437163ab598620a3c907c0f3432936f51">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.4.0_a490446cb293a21e90bf7272f07960d50f78f27a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.4.0/5b72bf48563ea8410e650de14aa33ff69a3e8c35/okio-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5b72bf48563ea8410e650de14aa33ff69a3e8c35">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/okio-1.4.0_221517f04c7741ae0f39dcae73cca73e0d0ef9f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.4.0_b69f26f579024f0e1187e3b06e7bc5565df3704b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="73fe8ab7f76e41d0cabbc4fa3399557de52efb2d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-10.0.0_1f0596346f7a3a0ecae7c5d1183709a9ce18891d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ae809d521d9f7da5337a82edd64eea23a76e788d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gass-10.0.0_77176c9d8c30397fbc66a8a1ac1f31f3af15d024.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.github.fleker/settingsmanager/1.3.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="50ce22b7e4bbbf49900f49bb9f1d90432f8d629d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.github.fleker-settingsmanager-1.3.5_4bb8f9d2a1a544c16e6b711a671469874e7f8c55.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/.gradle/caches/modules-2/files-2.1/com.google.ads.interactivemedia.v3/interactivemedia/3.5.2/21246e1a6815dc499443d46f9f5dbe954fd2b746/interactivemedia-3.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="21246e1a6815dc499443d46f9f5dbe954fd2b746">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/interactivemedia-3.5.2_3a50fa90069e4d7437d9782c9ef45681483b1514.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.github.Fleker/plugins/unspecified/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e18acddf93cf916792232a8f557ec7d408b4a945">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.github.Fleker-plugins-unspecified_84f8eafd2fdaaabdacacca2de85ee2e4d90c9f48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer-smoothstreaming/2.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="32636dfc1db28a118151b9566da35a6592d9dbbd">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-smoothstreaming-2.6.1_b296e2a7d29c383eff81b7b8b944617c174d4a89.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.github.paolorotolo/appintro/3.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="88a6346382185deaeb9e3cc7d89717bc67d2fb16">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.github.paolorotolo-appintro-3.2.0_58272c962f07c8a1e9255caa94842a0352e6fe53.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.4.0_503c8214cc07ba758c1c165b021108608059ab86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/answers/1.3.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="441ace5a20e7fcf94f30b4394d882ed2f79237c3">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-answers-1.3.1_7ec6eb082ad81d47f13fea0a00b18c93990d81c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer-ui/2.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9ca8a321d9d66727f6017b716c0615fa6aa21d96">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-ui-2.6.1_97977fdeeea1332817c82f9541cb83deb7768fbb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.4.0_ea8f8a4c4b7f8e18b81333ae0592b5fdf67277ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/beta/1.1.3/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b7a78990c10481f43cb4909f535ef4f11e60f1ab">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-beta-1.1.3_640eb2b289780cab7288449de9c5b71d56fdc6e3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="75dbc3537bc912d077b3db2f5ac72d5b43644b2c">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.0_a5e564f3b6cd00d42c42b906d734734f436d935d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="75c54c470e19b251749e6e6c2cf3d73c0b50aa64">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.pnikosis-materialish-progress-1.5_63f3bcdcc9ece54c86442b26e1e7b678f3efa3db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.0.0/a7782471b2a0de8fec071b8094a8aaf61c46ab70/support-annotations-27.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a7782471b2a0de8fec071b8094a8aaf61c46ab70">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/support-annotations-27.0.0_bcf01ff5680a4d85e1bb682c123969451e5f0e11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/glide-3.7.0_9663bd507e7aaaa053b9119a7dada7f1a8c6b330.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="e04f28ac2dd9bbe48ced6fc87fedf46c2586f5d6">
-        <dex dex="C:\Users\Z400\Plex-DVR-Input\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.4.0_f7eb46d8144a85571e99cc49de712b957f70ded6.jar" />
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.4.0_042a95467c0029b97c866761e7dddb15af61f95d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3347c3e7056fabc88bdbd8fdae65ddf2b674d977">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.0_e25d8fc279bba229f63177403198eeb9648dcd6d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="849da156edbc1201f5cd6e237524187442a62af3">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-lite-10.0.0_cf4ead5202f22ee84b36da6a150786ce4144bd05.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer-dash/2.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="663246efbd10b60ba71e1658d961b704b2814f3f">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-dash-2.6.1_e89c342adbb28d7d6af34b65884a6f6d972b5dcc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="6e65060ef2ec6ec98365250d2119d7968626fd3f">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/io.fabric.sdk.android-fabric-1.3.5_52c4afe952b66807bff6b6d1b32ae2e644560fb8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.media.tv/companionlibrary/1.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="216789168ced50f783f7c1751799a0cf4a463b26">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.media.tv-companionlibrary-1.0.1_d69b238ce4136fbbe4b6e250b90bf962a4ac3ae2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.4.0_6d979521c8af0c69533c15ca42b3e8e03c9fc8fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.4.0_cd831b5f4da33422f8374e98bf11f02e147ea6bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.4.0_be56b856d159194c0877d1bdada8c03c7c2de970.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/preference-leanback-v17/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="1d1e2665bad672383210664318ccc3bcde90f595">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-preference-leanback-v17-25.4.0_7395f490fd31ded221803ddfb7c36bb00a8bcc17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics/2.5.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2b1fb39b3c4feeb031b00744fbbe464e3d31a88d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.crashlytics.sdk.android-crashlytics-2.5.1_3883392e363c7546f0813e3a98bb8e54b9dcb351.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer-core/2.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fd6a954de38a79d26bb3b369ae69753fa3a175fb">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-core-2.6.1_c0c34a206422145fee7fbb001ae3f3e765fc1c09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer-hls/2.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="03ebbd941ee173b997d517c023d57bf0fc96929d">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-hls-2.6.1_1d3744092cef8185b5cdec4dbcfd20bac9b6a2f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fb0229499e600b485a276d4e31161a3ae31c144c">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-clearcut-10.0.0_03dfbe00a636f7e2cff888a4f1c9e6f4d3471a60.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="985be85104f6d0c5c5e51e7b7e60d8883a98ac64">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.0_bd2a0d3ae497901d1986c0a5333c1491435163cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/exploded-aar/com.android.support/preference-v14/25.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2bec381d4ffc4ae89124e3083ff446f9c468dda0">
+        <dex dex="/home/jetson/StudioProjects/Plex-DVR-Input/app/build/intermediates/pre-dexed/debug/com.android.support-preference-v14-25.4.0_ede28a74437d1ddc5262746a191da492d43acf2f.jar" />
     </item>
 
 </items>

@@ -51,9 +51,9 @@ public class SuggestedChannels {
                     .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
                             TvContract.Programs.Genres.NEWS)
                     .setLogo("http://tmsimg.plex.tv/h3/NowShowing/56905/s56905_h3_aa.png")
-                    .setMediaUrl("http://192.168.1.219:5004/auto/v620")
+                    .setMediaUrl("http://plexlivetv.ddns.net:3000/I-0-410-632")
                     .setName("DISCHD")
-                    .setNumber("620")
+                    .setNumber("1")
                     .build(),
             new JsonChannel.Builder()
                     .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +

@@ -2,11 +2,15 @@ package com.felkertech.cumulustv.tv;
 
 import android.annotation.TargetApi;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
+import android.media.tv.TvTrackInfo;
+import android.media.PlaybackParams;
+import android.view.Surface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -39,9 +43,11 @@ import com.google.android.media.tv.companionlibrary.model.Program;
 import com.google.android.media.tv.companionlibrary.model.RecordedProgram;
 import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
+import com.felkertech.cumulustv.player.StreamBundle;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -81,7 +87,9 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         private int mSelectedSubtitleTrackIndex;
         private CumulusTvPlayer mPlayer;
+        private Handler mHandler;
         private boolean mCaptionEnabled;
+        private ContentResolver mContentResolver;
         private String mInputId;
         private Context mContext;
         private boolean stillTuning;
@@ -100,7 +108,7 @@ public class CumulusTvTifService extends BaseTvInputService {
         public View onCreateOverlayView() {
             Log.d(TAG, "Create overlay view");
             LayoutInflater inflater = (LayoutInflater) getApplicationContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             try {
                 final View v = inflater.inflate(R.layout.loading, null);
                 if(!stillTuning && jsonChannel.isAudioOnly()) {
@@ -234,6 +242,22 @@ public class CumulusTvTifService extends BaseTvInputService {
             }
         }
 
+        @Override
+        public void onTimeShiftPause() {
+            mPlayer.pause();
+        }
+
+        @Override
+        public void onTimeShiftResume() {
+            mPlayer.play();
+        }
+
+        @Override
+        public long onTimeShiftGetStartPosition() {
+            return tuneTime;
+        }
+
+
         @TargetApi(Build.VERSION_CODES.M)
         @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
@@ -247,6 +271,16 @@ public class CumulusTvTifService extends BaseTvInputService {
                 Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
             }
             return currentMs;
+        }
+
+        @Override
+        public void onTimeShiftSeekTo(long timeMs) {
+            mPlayer.seekTo(timeMs);
+        }
+
+        @Override
+        public void onTimeShiftSetPlaybackParams(PlaybackParams params) {
+            mPlayer.setPlaybackParams(params);
         }
 
         @Override
@@ -291,11 +325,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             mPlayer.play();
             notifyVideoAvailable();
             return true;
-        }
-
-        @Override
-        public long onTimeShiftGetStartPosition() {
-            return tuneTime;
         }
 
         public TvPlayer getTvPlayer() {
@@ -350,6 +379,7 @@ public class CumulusTvTifService extends BaseTvInputService {
             releasePlayer();
 
             mPlayer = new CumulusTvPlayer(mContext);
+
             mPlayer.registerCallback(new TvPlayer.Callback() {
                 @Override
                 public void onStarted() {
@@ -391,6 +421,29 @@ public class CumulusTvTifService extends BaseTvInputService {
         public void onRelease() {
             super.onRelease();
             releasePlayer();
+        }
+
+        @Override
+        public boolean onSetSurface(Surface surface) {
+            if(mPlayer == null) {
+                return false;
+            }
+
+            Log.i(TAG, "set surface");
+            mPlayer.setSurface(surface);
+            return true;
+        }
+
+        @Override
+        public void onSurfaceChanged(int format, int width, int height) {
+            Log.i(TAG, "surface changed: " + width + "x" + height + " format: " + format);
+        }
+
+        @Override
+        public void onSetStreamVolume(float volume) {
+            if(mPlayer != null) {
+                mPlayer.setStreamVolume(volume);
+            }
         }
 
         @Override
