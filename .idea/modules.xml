@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CumulusTV-PLEX.iml" filepath="$PROJECT_DIR$/CumulusTV-PLEX.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Plex-DVR-Input.iml" filepath="$PROJECT_DIR$/.idea/Plex-DVR-Input.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Plex-DVR-Input.iml" filepath="$PROJECT_DIR$/Plex-DVR-Input.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/plugins/plugins.iml" filepath="$PROJECT_DIR$/plugins/plugins.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugins/plugins.iml" filepath="$PROJECT_DIR$/plugins/plugins.iml" />
     </modules>
   </component>

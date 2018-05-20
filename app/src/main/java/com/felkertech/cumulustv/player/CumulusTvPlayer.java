@@ -48,6 +48,27 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     private static final int DEFAULT_BUFFER_FOR_PLAYBACK_MS = 1000;
     private static final int DEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS = 2000;
 
+
+    public interface Listener  {
+
+        void onPlayerStateChanged(boolean playWhenReady, int playbackState);
+
+        void onPlayerError(Exception e);
+
+        void onDisconnect();
+
+        void onTracksChanged(StreamBundle bundle);
+
+        void onAudioTrackChanged(Format format);
+
+        void onVideoTrackChanged(Format format);
+
+        void onRenderedFirstFrame();
+
+        void onStreamError(int status);
+    }
+
+    private Listener listener;
     private Handler handler;
 
     private List<ErrorListener> mErrorListeners = new ArrayList<>();
@@ -76,6 +97,7 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
         mContext = context;
         player.addListener(this);
         position = new PositionReference();
+        DefaultTrackSelector trackSelector = new DefaultTrackSelector();
         trickPlayController = new TrickPlayController(handler, position, player);
         player.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT);
     }
@@ -207,8 +229,8 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     }
 
     @Override
-    public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-
+    public void onTracksChanged(StreamBundle bundle) {
+        listener.onTracksChanged(bundle);
     }
 
     @Override
@@ -236,6 +258,15 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
         for (ErrorListener listener : mErrorListeners) {
             listener.onError(error);
         }
+    }
+
+    public void onRenderedFirstFrame(Surface surface) {
+        if(trickPlayController.activated()) {
+            trickPlayController.postTick();
+            return;
+        }
+
+        listener.onRenderedFirstFrame();
     }
 
     @Override

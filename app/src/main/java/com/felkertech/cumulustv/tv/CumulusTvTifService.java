@@ -2,17 +2,15 @@ package com.felkertech.cumulustv.tv;
 
 import android.annotation.TargetApi;
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.media.tv.TvContentRating;
 import android.media.tv.TvInputManager;
 import android.media.tv.TvInputService;
 import android.media.tv.TvTrackInfo;
-import android.media.PlaybackParams;
-import android.view.Surface;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -27,6 +25,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.usbtuner.exoplayer.cache.CacheManager;
+import com.android.usbtuner.exoplayer.cache.TrickplayStorageManager;
+import com.android.usbtuner.util.SystemPropertiesProxy;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.felkertech.cumulustv.model.ChannelDatabase;
@@ -36,6 +38,7 @@ import com.felkertech.cumulustv.player.CumulusWebPlayer;
 import com.felkertech.cumulustv.player.MediaSourceFactory;
 import com.felkertech.cumulustv.services.CumulusJobService;
 import com.felkertech.n.cumulustv.R;
+import com.felkertech.cumulustv.player.StreamBundle;
 import com.google.android.media.tv.companionlibrary.BaseTvInputService;
 import com.google.android.media.tv.companionlibrary.TvPlayer;
 import com.google.android.media.tv.companionlibrary.model.Advertisement;
@@ -43,11 +46,12 @@ import com.google.android.media.tv.companionlibrary.model.Program;
 import com.google.android.media.tv.companionlibrary.model.RecordedProgram;
 import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
-import com.felkertech.cumulustv.player.StreamBundle;
 
-import java.util.concurrent.ExecutionException;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -57,6 +61,9 @@ public class CumulusTvTifService extends BaseTvInputService {
     private static final String TAG = CumulusTvTifService.class.getSimpleName();
     private static final boolean DEBUG = false;
     private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
+    private static final String MAX_CACHE_SIZE_KEY = "usbtuner.cachesize_mbytes";
+    private static final int MAX_CACHE_SIZE_DEF = 2 * 1024;  // 2GB
+    private static final int MIN_CACHE_SIZE_DEF = 256;  // 256MB
 
     private CaptioningManager mCaptioningManager;
 
@@ -87,9 +94,7 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         private int mSelectedSubtitleTrackIndex;
         private CumulusTvPlayer mPlayer;
-        private Handler mHandler;
         private boolean mCaptionEnabled;
-        private ContentResolver mContentResolver;
         private String mInputId;
         private Context mContext;
         private boolean stillTuning;
@@ -102,6 +107,25 @@ public class CumulusTvTifService extends BaseTvInputService {
             mCaptionEnabled = mCaptioningManager.isEnabled();
             mContext = context;
             mInputId = inputId;
+        }
+
+        @Override
+        protected CacheManager createCacheManager() {
+            int maxCacheSizeMb = SystemPropertiesProxy.getInt(MAX_CACHE_SIZE_KEY, MAX_CACHE_SIZE_DEF);
+            if (maxCacheSizeMb >= MIN_CACHE_SIZE_DEF) {
+                boolean useExternalStorage = Environment.MEDIA_MOUNTED.equals(
+                        Environment.getExternalStorageState()) &&
+                        Environment.isExternalStorageRemovable();
+                if (DEBUG) Log.d(TAG, "useExternalStorage for trickplay: " + useExternalStorage);
+                boolean allowToUseInternalStorage = true;
+                if (useExternalStorage || allowToUseInternalStorage) {
+                    File baseDir = useExternalStorage ? getExternalCacheDir() : getCacheDir();
+                    return new CacheManager(
+                            new TrickplayStorageManager(getApplicationContext(), baseDir,
+                                    1024L * 1024 * maxCacheSizeMb));
+                }
+            }
+            return null;
         }
 
         @Override
@@ -243,20 +267,32 @@ public class CumulusTvTifService extends BaseTvInputService {
         }
 
         @Override
-        public void onTimeShiftPause() {
-            mPlayer.pause();
-        }
+        public void onTracksChanged(StreamBundle bundle) {
+            final List<TvTrackInfo> tracks = new ArrayList<>(16);
 
-        @Override
-        public void onTimeShiftResume() {
-            mPlayer.play();
-        }
+            // create video track (limit surface size to display size)
+            TvTrackInfo info = TrackInfoMapper.findTrackInfo(
+                    bundle,
+                    StreamBundle.CONTENT_VIDEO,
+                    0);
 
-        @Override
-        public long onTimeShiftGetStartPosition() {
-            return tuneTime;
-        }
+            if(info != null) {
+                tracks.add(info);
+            }
 
+            // create audio tracks
+            int audioTrackCount = bundle.getStreamCount(StreamBundle.CONTENT_AUDIO);
+
+            for(int i = 0; i < audioTrackCount; i++) {
+                info = TrackInfoMapper.findTrackInfo(bundle, StreamBundle.CONTENT_AUDIO, i);
+
+                if(info != null) {
+                    tracks.add(info);
+                }
+            }
+
+            notifyTracksChanged(tracks);
+        }
 
         @TargetApi(Build.VERSION_CODES.M)
         @RequiresApi(api = Build.VERSION_CODES.M)
@@ -271,16 +307,6 @@ public class CumulusTvTifService extends BaseTvInputService {
                 Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
             }
             return currentMs;
-        }
-
-        @Override
-        public void onTimeShiftSeekTo(long timeMs) {
-            mPlayer.seekTo(timeMs);
-        }
-
-        @Override
-        public void onTimeShiftSetPlaybackParams(PlaybackParams params) {
-            mPlayer.setPlaybackParams(params);
         }
 
         @Override
@@ -325,6 +351,11 @@ public class CumulusTvTifService extends BaseTvInputService {
             mPlayer.play();
             notifyVideoAvailable();
             return true;
+        }
+
+        @Override
+        public long onTimeShiftGetStartPosition() {
+            return tuneTime;
         }
 
         public TvPlayer getTvPlayer() {
@@ -379,7 +410,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             releasePlayer();
 
             mPlayer = new CumulusTvPlayer(mContext);
-
             mPlayer.registerCallback(new TvPlayer.Callback() {
                 @Override
                 public void onStarted() {
@@ -421,29 +451,6 @@ public class CumulusTvTifService extends BaseTvInputService {
         public void onRelease() {
             super.onRelease();
             releasePlayer();
-        }
-
-        @Override
-        public boolean onSetSurface(Surface surface) {
-            if(mPlayer == null) {
-                return false;
-            }
-
-            Log.i(TAG, "set surface");
-            mPlayer.setSurface(surface);
-            return true;
-        }
-
-        @Override
-        public void onSurfaceChanged(int format, int width, int height) {
-            Log.i(TAG, "surface changed: " + width + "x" + height + " format: " + format);
-        }
-
-        @Override
-        public void onSetStreamVolume(float volume) {
-            if(mPlayer != null) {
-                mPlayer.setStreamVolume(volume);
-            }
         }
 
         @Override
