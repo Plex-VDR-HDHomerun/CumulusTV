@@ -25,8 +25,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.usbtuner.exoplayer.cache.CacheManager;
-import com.android.usbtuner.exoplayer.cache.TrickplayStorageManager;
+import com.android.usbtuner.exoplayer2.cache.CacheManager;
+import com.android.usbtuner.exoplayer2.cache.TrickplayStorageManager;
 import com.android.usbtuner.util.SystemPropertiesProxy;
 
 import com.bumptech.glide.Glide;
@@ -48,16 +48,18 @@ import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.Collections;
+import java.util.Set;
+import java.util.WeakHashMap;
 
 
 /**
  * An instance of {@link BaseTvInputService} which plays Cumulus Tv videos.
  */
-public class CumulusTvTifService extends BaseTvInputService {
+public abstract class CumulusTvTifService extends BaseTvInputService {
     private static final String TAG = CumulusTvTifService.class.getSimpleName();
     private static final boolean DEBUG = false;
     private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
@@ -66,12 +68,24 @@ public class CumulusTvTifService extends BaseTvInputService {
     private static final int MIN_CACHE_SIZE_DEF = 256;  // 256MB
 
     private CaptioningManager mCaptioningManager;
+    private CacheManager mCacheManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mCaptioningManager = (CaptioningManager) getSystemService(Context.CAPTIONING_SERVICE);
+        mCacheManager = createCacheManager();
+        if (mCacheManager == null) {
+            Log.i(TAG, "Trickplay is disabled");
+        } else {
+            Log.i(TAG, "Trickplay is enabled");
+        }
     }
+
+    /**
+     * Creates {@CacheManager}. It returns null, if storage in not enough.
+     */
+    protected abstract CacheManager createCacheManager();
 
     @Override
     public final Session onCreateSession(String inputId) {
@@ -101,12 +115,19 @@ public class CumulusTvTifService extends BaseTvInputService {
         private JsonChannel jsonChannel;
         private long tuneTime;
         private boolean isWeb;
+        private CacheManager mCacheManager;
 
         RichTvInputSessionImpl(Context context, String inputId) {
             super(context, inputId);
             mCaptionEnabled = mCaptioningManager.isEnabled();
             mContext = context;
             mInputId = inputId;
+            mCacheManager = createCacheManager();
+            if (mCacheManager == null) {
+                Log.i(TAG, "Trickplay is disabled");
+            } else {
+                Log.i(TAG, "Trickplay is enabled");
+            }
         }
 
         @Override
@@ -266,34 +287,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             }
         }
 
-        @Override
-        public void onTracksChanged(StreamBundle bundle) {
-            final List<TvTrackInfo> tracks = new ArrayList<>(16);
-
-            // create video track (limit surface size to display size)
-            TvTrackInfo info = TrackInfoMapper.findTrackInfo(
-                    bundle,
-                    StreamBundle.CONTENT_VIDEO,
-                    0);
-
-            if(info != null) {
-                tracks.add(info);
-            }
-
-            // create audio tracks
-            int audioTrackCount = bundle.getStreamCount(StreamBundle.CONTENT_AUDIO);
-
-            for(int i = 0; i < audioTrackCount; i++) {
-                info = TrackInfoMapper.findTrackInfo(bundle, StreamBundle.CONTENT_AUDIO, i);
-
-                if(info != null) {
-                    tracks.add(info);
-                }
-            }
-
-            notifyTracksChanged(tracks);
-        }
-
         @TargetApi(Build.VERSION_CODES.M)
         @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
@@ -451,7 +444,11 @@ public class CumulusTvTifService extends BaseTvInputService {
         public void onRelease() {
             super.onRelease();
             releasePlayer();
+            if (mCacheManager != null) {
+                mCacheManager.close();
+            }
         }
+
 
         @Override
         public void onBlockContent(TvContentRating rating) {

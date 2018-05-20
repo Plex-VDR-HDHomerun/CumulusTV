@@ -39,8 +39,8 @@ import android.view.accessibility.CaptioningManager.CaptionStyle;
 import android.view.accessibility.CaptioningManager.CaptioningChangeListener;
 import android.widget.RelativeLayout;
 
-import com.google.android.exoplayer.text.CaptionStyleCompat;
-import com.google.android.exoplayer.text.SubtitleView;
+import com.google.android.exoplayer2.text.CaptionStyleCompat;
+import com.google.android.exoplayer2.text.SubtitleView;
 import com.android.usbtuner.data.Cea708Data.CaptionPenAttr;
 import com.android.usbtuner.data.Cea708Data.CaptionPenColor;
 import com.android.usbtuner.data.Cea708Data.CaptionWindow;
