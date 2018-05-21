@@ -43,7 +43,7 @@ import com.google.android.media.tv.companionlibrary.model.Program;
 import com.google.android.media.tv.companionlibrary.model.RecordedProgram;
 import com.google.android.media.tv.companionlibrary.utils.TvContractUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
-import com.felkertech.cumulustv.player.StreamBundle;
+import com.felkertech.cumulustv.player.RendererBuilderFactory;
 
 import java.util.concurrent.ExecutionException;
 import java.util.ArrayList;
@@ -59,6 +59,17 @@ public class CumulusTvTifService extends BaseTvInputService {
     private static final long EPG_SYNC_DELAYED_PERIOD_MS = 1000 * 2; // 2 Seconds
 
     private CaptioningManager mCaptioningManager;
+
+    /**
+     * Gets the track id of the track type and track index.
+     *
+     * @param trackType  the type of the track e.g. TvTrackInfo.TYPE_AUDIO
+     * @param trackIndex the index of that track within the media. e.g. 0, 1, 2...
+     * @return the track id for the type & index combination.
+     */
+    private static String getTrackId(int trackType, int trackIndex) {
+        return trackType + "-" + trackIndex;
+    }
 
     @Override
     public void onCreate() {
@@ -301,10 +312,13 @@ public class CumulusTvTifService extends BaseTvInputService {
             } else {
                 createPlayer(program.getInternalProviderData().getVideoType(),
                         Uri.parse(program.getInternalProviderData().getVideoUrl()));
+                if (startPosMs > 0) {
+                    mPlayer.seekTo(startPosMs);
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
                 }
-                mPlayer.play();
+                mPlayer.setPlayWhenReady(true);
                 notifyVideoAvailable();
                 Log.d(TAG, "The video should start playing");
                 return true;
@@ -378,7 +392,8 @@ public class CumulusTvTifService extends BaseTvInputService {
         private void createPlayer(int videoType, Uri videoUrl) {
             releasePlayer();
 
-            mPlayer = new CumulusTvPlayer(mContext);
+            mPlayer = new CumulusTvPlayer(RendererBuilderFactory.createRendererBuilder(
+                    mContext, videoType, videoUrl), mContext);
 
             mPlayer.registerCallback(new TvPlayer.Callback() {
                 @Override
@@ -410,6 +425,7 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         private void releasePlayer() {
             if (mPlayer != null) {
+                mPlayer.removeListener(this);
                 mPlayer.setSurface(null);
                 mPlayer.stop();
                 mPlayer.release();
@@ -450,6 +466,24 @@ public class CumulusTvTifService extends BaseTvInputService {
         public void onBlockContent(TvContentRating rating) {
             super.onBlockContent(rating);
             releasePlayer();
+        }
+
+        @Override
+        public void onStateChanged(boolean playWhenReady, int playbackState) {
+            if (mPlayer == null) {
+                return;
+            }
+
+            if (playWhenReady ) {
+                String audioId = getTrackId(TvTrackInfo.TYPE_AUDIO,
+                        0);
+                String videoId = getTrackId(TvTrackInfo.TYPE_VIDEO,
+                        0);
+
+                notifyTrackSelected(TvTrackInfo.TYPE_AUDIO, audioId);
+                notifyTrackSelected(TvTrackInfo.TYPE_VIDEO, videoId);
+                notifyVideoAvailable();
+            }
         }
 
         private void requestEpgSync(final Uri channelUri) {
