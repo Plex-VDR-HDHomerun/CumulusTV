@@ -15,6 +15,12 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion '24.0.2'
