@@ -28,7 +28,7 @@ import android.util.Pair;
 import com.google.android.exoplayer.MediaFormat;
 import com.google.android.exoplayer.SampleHolder;
 import com.google.android.exoplayer.util.MimeTypes;
-import com.android.tv.common.SoftPreconditions;
+import com.felkertech.cumulustv.tv.common.SoftPreconditions;
 import com.android.tv.tuner.exoplayer.buffer.RecordingSampleBuffer.BufferReason;
 
 import java.io.IOException;

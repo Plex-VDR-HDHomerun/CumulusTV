@@ -20,9 +20,6 @@ import android.media.MediaFormat;
 import android.util.Log;
 import android.util.Pair;
 
-import com.android.tv.tuner.data.nano.Track.AtscCaptionTrack;
-import com.google.protobuf.nano.MessageNano;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -199,31 +196,6 @@ public class DvrStorageManager implements BufferManager.StorageManager {
         return trackFormatList;
     }
 
-    /**
-     * Reads caption information from files.
-     *
-     * @return a list of {@link AtscCaptionTrack} objects which store caption information.
-     */
-    public List<AtscCaptionTrack> readCaptionInfoFiles() {
-        List<AtscCaptionTrack> tracks = new ArrayList<>();
-        int index = 0;
-        boolean trackNotFound = false;
-        do {
-            String fileName = META_FILE_TYPE_CAPTION +
-                    ((index == 0) ? META_FILE_SUFFIX : (index + META_FILE_SUFFIX));
-            File file = new File(getBufferDir(), fileName);
-            try (DataInputStream in = new DataInputStream(new FileInputStream(file))) {
-                byte[] data = new byte[(int) file.length()];
-                in.read(data);
-                tracks.add(AtscCaptionTrack.parseFrom(data));
-            } catch (IOException e) {
-                trackNotFound = true;
-            }
-            index++;
-        } while(!trackNotFound);
-        return tracks;
-    }
-
     private ArrayList<BufferManager.PositionHolder> readOldIndexFile(File indexFile)
             throws IOException {
         ArrayList<BufferManager.PositionHolder> indices = new ArrayList<>();
@@ -350,28 +322,6 @@ public class DvrStorageManager implements BufferManager.StorageManager {
                 }
                 writeFormatLong(out, trackFormat.format, MediaFormat.KEY_DURATION);
                 writeFormatString(out, trackFormat.format, MediaFormat.KEY_LANGUAGE);
-            }
-        }
-    }
-
-    /**
-     * Writes caption information to files.
-     *
-     * @param tracks a list of {@link AtscCaptionTrack} objects which store caption information.
-     */
-    public void writeCaptionInfoFiles(List<AtscCaptionTrack> tracks) {
-        if (tracks == null || tracks.isEmpty()) {
-            return;
-        }
-        for (int i = 0; i < tracks.size(); i++) {
-            AtscCaptionTrack track = tracks.get(i);
-            String fileName = META_FILE_TYPE_CAPTION +
-                    ((i == 0) ? META_FILE_SUFFIX : (i + META_FILE_SUFFIX));
-            File file = new File(getBufferDir(), fileName);
-            try (DataOutputStream out = new DataOutputStream(new FileOutputStream(file))) {
-                out.write(MessageNano.toByteArray(track));
-            } catch (Exception e) {
-                Log.e(TAG, "Fail to write caption info to files", e);
             }
         }
     }

@@ -25,9 +25,9 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.google.android.exoplayer.SampleHolder;
-import com.android.tv.common.SoftPreconditions;
-import com.android.tv.tuner.exoplayer.SampleExtractor;
-import com.android.tv.util.Utils;
+import com.felkertech.cumulustv.tv.common.SoftPreconditions;
+import com.felkertech.cumulustv.player.SampleExtractor;
+import com.felkertech.cumulustv.tv.Utils;
 
 import java.io.File;
 import java.io.IOException;

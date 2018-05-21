@@ -27,8 +27,8 @@ import com.google.android.exoplayer.SampleHolder;
 import com.google.android.exoplayer.SampleSource;
 import com.google.android.exoplayer.util.Assertions;
 import com.android.tv.tuner.exoplayer.MpegTsPlayer;
-import com.android.tv.tuner.tvinput.PlaybackBufferListener;
-import com.android.tv.tuner.exoplayer.SampleExtractor;
+import com.felkertech.cumulustv.player.PlaybackBufferListener;
+import com.felkertech.cumulustv.player.SampleExtractor;
 
 import java.io.IOException;
 import java.lang.annotation.Retention;
