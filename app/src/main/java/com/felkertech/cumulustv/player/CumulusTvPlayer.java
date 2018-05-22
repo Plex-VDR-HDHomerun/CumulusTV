@@ -1,5 +1,6 @@
 package com.felkertech.cumulustv.player;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.PlaybackParams;
 import android.net.Uri;
@@ -48,6 +49,26 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     private static final int DEFAULT_BUFFER_FOR_PLAYBACK_MS = 1000;
     private static final int DEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS = 2000;
 
+    public interface Listener  {
+
+        void onPlayerStateChanged(boolean playWhenReady, int playbackState);
+
+        void onPlayerError(Exception e);
+
+        void onDisconnect();
+
+        void onTracksChanged(StreamBundle bundle);
+
+        void onAudioTrackChanged(Format format);
+
+        void onVideoTrackChanged(Format format);
+
+        void onRenderedFirstFrame();
+
+        void onStreamError(int status);
+    }
+
+    private Listener listener;
     private Handler handler;
 
     private List<ErrorListener> mErrorListeners = new ArrayList<>();
@@ -93,10 +114,9 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
         player.seekTo(p / 1000);
     }
 
+    @TargetApi(23)
     public void setPlaybackParams(PlaybackParams params) {
-        player.setPlaybackParams(params);
         Log.d(TAG, "speed: " + params.getSpeed());
-        mPlaybackSpeed = params.getSpeed();
         trickPlayController.start(params.getSpeed());
     }
 
@@ -160,9 +180,7 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     }
 
     public void stop() {
-        trickPlayController.reset();
         player.stop();
-        position.reset();
     }
 
     public void release() {
@@ -215,6 +233,7 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
     public void onLoadingChanged(boolean isLoading) {
 
     }
+
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {

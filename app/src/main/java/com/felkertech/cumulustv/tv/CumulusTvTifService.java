@@ -273,6 +273,16 @@ public class CumulusTvTifService extends BaseTvInputService {
             return currentMs;
         }
 
+        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+            if(playWhenReady && playbackState == com.google.android.exoplayer2.Player.STATE_BUFFERING) {
+                notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_BUFFERING);
+            }
+
+            if(playWhenReady && playbackState == com.google.android.exoplayer2.Player.STATE_READY) {
+                notifyVideoAvailable();
+            }
+        }
+
         @Override
         public void onTimeShiftSeekTo(long timeMs) {
             mPlayer.seekTo(timeMs);
