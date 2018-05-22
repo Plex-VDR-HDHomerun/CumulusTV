@@ -43,7 +43,7 @@ public class SuggestedChannels {
                     .setGenres(TvContract.Programs.Genres.TECH_SCIENCE + "," +
                             TvContract.Programs.Genres.NEWS)
                     .setLogo("http://tmsimg.plex.tv/h3/NowShowing/28717/s28717_h3_aa.png")
-                    .setMediaUrl("http://plexlivetv.ddns.net:32400/livetv/sessions/862a31de-09f4-4952-874c-b8632823315a/5d741bxttfbo214ga0nl1a14/index.m3u8?X-Plex-Token=2DA7WyFpTpuQzK7qRpDJ")
+                    .setMediaUrl("http://plexlivetv.ddns.net:32400/livetv/sessions/b7451b12-5bc0-46cd-ba30-a2418cc58778/5d741bxttfbo214ga0nl1a14/index.m3u8?X-Plex-Token=2DA7WyFpTpuQzK7qRpDJ")
                     .setName("NBC HD")
                     .setNumber("508")
                     .build(),

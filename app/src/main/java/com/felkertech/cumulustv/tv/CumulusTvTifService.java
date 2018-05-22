@@ -285,7 +285,7 @@ public class CumulusTvTifService extends BaseTvInputService {
 
         @Override
         public void onTimeShiftSeekTo(long timeMs) {
-            mPlayer.seek(timeMs);
+            mPlayer.seekTo(timeMs);
         }
 
         @Override

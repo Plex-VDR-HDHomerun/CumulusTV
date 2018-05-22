@@ -109,7 +109,8 @@ public class CumulusTvPlayer implements TvPlayer, com.google.android.exoplayer2.
         player.setVolume(volume);
     }
 
-    public void seek(long position) {
+    @Override
+    public void seekTo(long position) {
         long p = this.position.timeUsFromPosition(Math.max(position, this.position.getStartPosition()));
         player.seekTo(p / 1000);
     }
