@@ -84,10 +84,11 @@ public class CumulusTvTifService extends BaseTvInputService {
         private static final float CAPTION_LINE_HEIGHT_RATIO = 0.0533f;
         private static final int TEXT_UNIT_PIXELS = 0;
         private static final String UNKNOWN_LANGUAGE = "und";
+        private static final int MSG_SEEK = 1000;
+        private static final int SEEK_DELAY_MS = 300;
 
         private int mSelectedSubtitleTrackIndex;
         private CumulusTvPlayer mPlayer;
-        private Handler mHandler;
         private boolean mCaptionEnabled;
         private ContentResolver mContentResolver;
         private String mInputId;
@@ -96,6 +97,40 @@ public class CumulusTvTifService extends BaseTvInputService {
         private JsonChannel jsonChannel;
         private long tuneTime;
         private boolean isWeb;
+        private String mCurrentVideoTrackId = null;
+        private String mCurrentAudioTrackId = null;
+
+        private long mRecordStartTimeMs;
+        private long mPausedTimeMs;
+        // The time in milliseconds when the current position is lastly updated.
+        private long mLastCurrentPositionUpdateTimeMs;
+        // The current playback position.
+        private long mCurrentPositionMs;
+        // The current playback speed rate.
+        private float mSpeed;
+
+        private final Handler mHandler = new Handler(Looper.myLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+                if (msg.what == MSG_SEEK) {
+                    // Actually, this input doesn't play any videos, it just shows the image.
+                    // So we should simulate the playback here by changing the current playback
+                    // position periodically in order to test the time shift.
+                    // If the playback is paused, the current playback position doesn't need to be
+                    // changed.
+                    if (mPausedTimeMs == 0) {
+                        long currentTimeMs = System.currentTimeMillis();
+                        mCurrentPositionMs += (long) ((currentTimeMs
+                                - mLastCurrentPositionUpdateTimeMs) * mSpeed);
+                        mCurrentPositionMs = Math.max(mRecordStartTimeMs,
+                                Math.min(mCurrentPositionMs, currentTimeMs));
+                        mLastCurrentPositionUpdateTimeMs = currentTimeMs;
+                    }
+                    sendEmptyMessageDelayed(MSG_SEEK, SEEK_DELAY_MS);
+                }
+                super.handleMessage(msg);
+            }
+        };
 
         RichTvInputSessionImpl(Context context, String inputId) {
             super(context, inputId);
@@ -311,12 +346,12 @@ public class CumulusTvTifService extends BaseTvInputService {
             } else {
                 createPlayer(program.getInternalProviderData().getVideoType(),
                         Uri.parse(program.getInternalProviderData().getVideoUrl()));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
-                }
-                mPlayer.play();
-                notifyVideoAvailable();
-                Log.d(TAG, "The video should start playing");
+                notifyTimeShiftStatusChanged(TvInputManager.TIME_SHIFT_STATUS_AVAILABLE);
+                mRecordStartTimeMs = mCurrentPositionMs = mLastCurrentPositionUpdateTimeMs
+                        = System.currentTimeMillis();
+                mPausedTimeMs = 0;
+                mHandler.sendEmptyMessageDelayed(MSG_SEEK, SEEK_DELAY_MS);
+                mSpeed = 1;
                 return true;
             }
         }
