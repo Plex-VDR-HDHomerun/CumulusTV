@@ -277,37 +277,6 @@ public class CumulusTvTifService extends BaseTvInputService {
             }
         }
 
-        @Override
-        public void onTimeShiftPause() {
-            mPlayer.pause();
-        }
-
-        @Override
-        public void onTimeShiftResume() {
-            mPlayer.play();
-        }
-
-        @Override
-        public long onTimeShiftGetStartPosition() {
-            return tuneTime;
-        }
-
-
-        @TargetApi(Build.VERSION_CODES.M)
-        @RequiresApi(api = Build.VERSION_CODES.M)
-        @Override
-        public long onTimeShiftGetCurrentPosition() {
-            if (mPlayer == null) {
-                return TvInputManager.TIME_SHIFT_INVALID_TIME;
-            }
-            long currentMs = tuneTime + mPlayer.getCurrentPosition();
-            if (DEBUG) {
-                Log.d(TAG, currentMs + "  " + onTimeShiftGetStartPosition() + " start position");
-                Log.d(TAG, (currentMs - onTimeShiftGetStartPosition()) + " diff start position");
-            }
-            return currentMs;
-        }
-
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
             if(playWhenReady && playbackState == com.google.android.exoplayer2.Player.STATE_BUFFERING) {
                 notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_BUFFERING);
@@ -319,13 +288,39 @@ public class CumulusTvTifService extends BaseTvInputService {
         }
 
         @Override
+        public long onTimeShiftGetCurrentPosition() {
+            Log.d(TAG, "currentPositionMs=" + mCurrentPositionMs);
+            return mCurrentPositionMs;
+        }
+
+        @Override
+        public long onTimeShiftGetStartPosition() {
+            return mRecordStartTimeMs;
+        }
+
+        @Override
+        public void onTimeShiftPause() {
+            mCurrentPositionMs = mPausedTimeMs = mLastCurrentPositionUpdateTimeMs
+                    = System.currentTimeMillis();
+        }
+
+        @Override
+        public void onTimeShiftResume() {
+            mSpeed = 1;
+            mPausedTimeMs = 0;
+            mLastCurrentPositionUpdateTimeMs = System.currentTimeMillis();
+        }
+
+        @Override
         public void onTimeShiftSeekTo(long timeMs) {
-            mPlayer.seekTo(timeMs);
+            mLastCurrentPositionUpdateTimeMs = System.currentTimeMillis();
+            mCurrentPositionMs = Math.max(mRecordStartTimeMs,
+                    Math.min(timeMs, mLastCurrentPositionUpdateTimeMs));
         }
 
         @Override
         public void onTimeShiftSetPlaybackParams(PlaybackParams params) {
-            mPlayer.setPlaybackParams(params);
+            mSpeed = params.getSpeed();
         }
 
         @Override
@@ -352,6 +347,9 @@ public class CumulusTvTifService extends BaseTvInputService {
                 mPausedTimeMs = 0;
                 mHandler.sendEmptyMessageDelayed(MSG_SEEK, SEEK_DELAY_MS);
                 mSpeed = 1;
+                mPlayer.play();
+                notifyVideoAvailable();
+                Log.d(TAG, "The video should start playing");
                 return true;
             }
         }
